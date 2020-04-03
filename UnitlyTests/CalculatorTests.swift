@@ -12,8 +12,8 @@ import XCTest
 
 class CalculatorTests: XCTestCase {
 
+    //Fahrenheit <-> Celsius
     func testTemp() {
-        
         let cal = Calculator()
         
         //Result of entering Fahrenheit and geting Celsius
@@ -26,5 +26,22 @@ class CalculatorTests: XCTestCase {
         //1F = -17.22F
         XCTAssertEqual(fahrenheitResult, "33.80")
     }
+    
+    //Foot <-> Metre
+    func testLenght() {
+        let cal = Calculator()
+        
+        //Result for Foot input and Metre output
+        let metreResult = cal.calResult(type: "lenght", topValue: "1", bottonValue: "")
+        //1F = -17.22F
+        XCTAssertEqual(metreResult, "0.30")
+        
+        //Result for Metre input and Foot output
+        let footResult = cal.calResult(type: "lenght", topValue: "", bottonValue: "1")
+        //1F = -17.22F
+        XCTAssertEqual(footResult, "3.28")
+    }
+    
+    
 
 }
