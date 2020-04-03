@@ -26,7 +26,7 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    func topEquation(for type: String,value topValue:String ) -> Double{
+    private func topEquation(for type: String,value topValue:String ) -> Double{
         
         var tempValue = 00.00
         let num = Double(topValue)
@@ -50,7 +50,7 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    func bottonEquation(for type: String,value bottonValue:String ) -> Double{
+    private func bottonEquation(for type: String,value bottonValue:String ) -> Double{
         
         
         var tempValue = 00.00

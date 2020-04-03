@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04679FAB24370ED600EFAD02 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04679FAA24370ED600EFAD02 /* CalculatorTests.swift */; };
+		04679FDD24372F6800EFAD02 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04679FDC24372F6800EFAD02 /* CalculatorTests.swift */; };
 		0471F7D323FFA557000A464C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D223FFA557000A464C /* AppDelegate.swift */; };
 		0471F7D523FFA557000A464C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D423FFA557000A464C /* SceneDelegate.swift */; };
 		0471F7D723FFA557000A464C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D623FFA557000A464C /* ViewController.swift */; };
@@ -15,25 +15,25 @@
 		0471F7DC23FFA55D000A464C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DB23FFA55D000A464C /* Assets.xcassets */; };
 		0471F7DF23FFA55D000A464C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */; };
 		0471F7E7240171C9000A464C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7E6240171C9000A464C /* Calculator.swift */; };
-		EDB5B6EC73568BBC166DD355 /* Pods_Minimalist_Unit_Converter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4877EECF0136D3CD674A1ACE /* Pods_Minimalist_Unit_Converter.framework */; };
+		91E1036B0AA493EB00FE08FE /* Pods_Unitly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0413C20C2437080800B3DE86 /* PBXContainerItemProxy */ = {
+		04679FD724372F2100EFAD02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0471F7C723FFA556000A464C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0471F7CE23FFA557000A464C;
-			remoteInfo = "Minimalist Unit Converter";
+			remoteInfo = Unitly;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02C39C1765627150E8806F8A /* Pods-Minimalist Unit Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist Unit Converter.release.xcconfig"; path = "Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter.release.xcconfig"; sourceTree = "<group>"; };
-		0413C2072437080800B3DE86 /* iUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0413C20B2437080800B3DE86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04679FAA24370ED600EFAD02 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
-		0471F7CF23FFA557000A464C /* iUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04679FD224372F2100EFAD02 /* UnitlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04679FD624372F2100EFAD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04679FDC24372F6800EFAD02 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		0471F7CF23FFA557000A464C /* Unitly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unitly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0471F7D223FFA557000A464C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0471F7D423FFA557000A464C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0471F7D623FFA557000A464C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,12 +42,15 @@
 		0471F7DE23FFA55D000A464C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0471F7E023FFA55D000A464C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0471F7E6240171C9000A464C /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.release.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.release.xcconfig"; sourceTree = "<group>"; };
+		3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.debug.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.debug.xcconfig"; sourceTree = "<group>"; };
 		4877EECF0136D3CD674A1ACE /* Pods_Minimalist_Unit_Converter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minimalist_Unit_Converter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CA637BFFEDF85361D4DD05 /* Pods-Minimalist Unit Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist Unit Converter.debug.xcconfig"; path = "Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter.debug.xcconfig"; sourceTree = "<group>"; };
+		DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unitly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0413C2042437080800B3DE86 /* Frameworks */ = {
+		04679FCF24372F2100EFAD02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,27 +61,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB5B6EC73568BBC166DD355 /* Pods_Minimalist_Unit_Converter.framework in Frameworks */,
+				91E1036B0AA493EB00FE08FE /* Pods_Unitly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0413C2082437080800B3DE86 /* iUnitTests */ = {
+		04679FD324372F2100EFAD02 /* UnitlyTests */ = {
 			isa = PBXGroup;
 			children = (
-				04679FAA24370ED600EFAD02 /* CalculatorTests.swift */,
-				0413C20B2437080800B3DE86 /* Info.plist */,
+				04679FDC24372F6800EFAD02 /* CalculatorTests.swift */,
+				04679FD624372F2100EFAD02 /* Info.plist */,
 			);
-			path = iUnitTests;
+			path = UnitlyTests;
 			sourceTree = "<group>";
 		};
 		0471F7C623FFA556000A464C = {
 			isa = PBXGroup;
 			children = (
-				0471F7D123FFA557000A464C /* Minimalist Unit Converter */,
-				0413C2082437080800B3DE86 /* iUnitTests */,
+				0471F7D123FFA557000A464C /* Unitly */,
+				04679FD324372F2100EFAD02 /* UnitlyTests */,
 				0471F7D023FFA557000A464C /* Products */,
 				A9044F0E2B710715D2ECBD64 /* Pods */,
 				251C550F7D765D543616E275 /* Frameworks */,
@@ -88,13 +91,13 @@
 		0471F7D023FFA557000A464C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0471F7CF23FFA557000A464C /* iUnit.app */,
-				0413C2072437080800B3DE86 /* iUnitTests.xctest */,
+				0471F7CF23FFA557000A464C /* Unitly.app */,
+				04679FD224372F2100EFAD02 /* UnitlyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0471F7D123FFA557000A464C /* Minimalist Unit Converter */ = {
+		0471F7D123FFA557000A464C /* Unitly */ = {
 			isa = PBXGroup;
 			children = (
 				0471F7D223FFA557000A464C /* AppDelegate.swift */,
@@ -106,13 +109,14 @@
 				0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */,
 				0471F7E023FFA55D000A464C /* Info.plist */,
 			);
-			path = "Minimalist Unit Converter";
+			path = Unitly;
 			sourceTree = "<group>";
 		};
 		251C550F7D765D543616E275 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4877EECF0136D3CD674A1ACE /* Pods_Minimalist_Unit_Converter.framework */,
+				DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +126,8 @@
 			children = (
 				86CA637BFFEDF85361D4DD05 /* Pods-Minimalist Unit Converter.debug.xcconfig */,
 				02C39C1765627150E8806F8A /* Pods-Minimalist Unit Converter.release.xcconfig */,
+				3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */,
+				12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -129,27 +135,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0413C2062437080800B3DE86 /* iUnitTests */ = {
+		04679FD124372F2100EFAD02 /* UnitlyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0413C2102437080800B3DE86 /* Build configuration list for PBXNativeTarget "iUnitTests" */;
+			buildConfigurationList = 04679FDB24372F2100EFAD02 /* Build configuration list for PBXNativeTarget "UnitlyTests" */;
 			buildPhases = (
-				0413C2032437080800B3DE86 /* Sources */,
-				0413C2042437080800B3DE86 /* Frameworks */,
-				0413C2052437080800B3DE86 /* Resources */,
+				04679FCE24372F2100EFAD02 /* Sources */,
+				04679FCF24372F2100EFAD02 /* Frameworks */,
+				04679FD024372F2100EFAD02 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0413C20D2437080800B3DE86 /* PBXTargetDependency */,
+				04679FD824372F2100EFAD02 /* PBXTargetDependency */,
 			);
-			name = iUnitTests;
-			productName = iUnitTests;
-			productReference = 0413C2072437080800B3DE86 /* iUnitTests.xctest */;
+			name = UnitlyTests;
+			productName = UnitlyTests;
+			productReference = 04679FD224372F2100EFAD02 /* UnitlyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0471F7CE23FFA557000A464C /* Minimalist Unit Converter */ = {
+		0471F7CE23FFA557000A464C /* Unitly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0471F7E323FFA55D000A464C /* Build configuration list for PBXNativeTarget "Minimalist Unit Converter" */;
+			buildConfigurationList = 0471F7E323FFA55D000A464C /* Build configuration list for PBXNativeTarget "Unitly" */;
 			buildPhases = (
 				44BD03BF3FC2FCCABA840935 /* [CP] Check Pods Manifest.lock */,
 				0471F7CB23FFA557000A464C /* Sources */,
@@ -161,9 +167,9 @@
 			);
 			dependencies = (
 			);
-			name = "Minimalist Unit Converter";
+			name = Unitly;
 			productName = "Minimalist Unit Converter";
-			productReference = 0471F7CF23FFA557000A464C /* iUnit.app */;
+			productReference = 0471F7CF23FFA557000A464C /* Unitly.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +182,7 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "FGT MAC";
 				TargetAttributes = {
-					0413C2062437080800B3DE86 = {
+					04679FD124372F2100EFAD02 = {
 						CreatedOnToolsVersion = 11.4;
 						TestTargetID = 0471F7CE23FFA557000A464C;
 					};
@@ -185,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0471F7CA23FFA556000A464C /* Build configuration list for PBXProject "Minimalist Unit Converter" */;
+			buildConfigurationList = 0471F7CA23FFA556000A464C /* Build configuration list for PBXProject "Unitly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,14 +204,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0471F7CE23FFA557000A464C /* Minimalist Unit Converter */,
-				0413C2062437080800B3DE86 /* iUnitTests */,
+				0471F7CE23FFA557000A464C /* Unitly */,
+				04679FD124372F2100EFAD02 /* UnitlyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0413C2052437080800B3DE86 /* Resources */ = {
+		04679FD024372F2100EFAD02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -231,15 +237,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Unitly/Pods-Unitly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Unitly/Pods-Unitly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unitly/Pods-Unitly-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		44BD03BF3FC2FCCABA840935 /* [CP] Check Pods Manifest.lock */ = {
@@ -257,7 +263,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Minimalist Unit Converter-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Unitly-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -267,11 +273,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0413C2032437080800B3DE86 /* Sources */ = {
+		04679FCE24372F2100EFAD02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04679FAB24370ED600EFAD02 /* CalculatorTests.swift in Sources */,
+				04679FDD24372F6800EFAD02 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +295,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0413C20D2437080800B3DE86 /* PBXTargetDependency */ = {
+		04679FD824372F2100EFAD02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0471F7CE23FFA557000A464C /* Minimalist Unit Converter */;
-			targetProxy = 0413C20C2437080800B3DE86 /* PBXContainerItemProxy */;
+			target = 0471F7CE23FFA557000A464C /* Unitly */;
+			targetProxy = 04679FD724372F2100EFAD02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -316,45 +322,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0413C20E2437080800B3DE86 /* Debug */ = {
+		04679FD924372F2100EFAD02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
-				INFOPLIST_FILE = iUnitTests/Info.plist;
+				INFOPLIST_FILE = UnitlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.UnitlyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iUnit.app/iUnit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unitly.app/Unitly";
 			};
 			name = Debug;
 		};
-		0413C20F2437080800B3DE86 /* Release */ = {
+		04679FDA24372F2100EFAD02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
-				INFOPLIST_FILE = iUnitTests/Info.plist;
+				INFOPLIST_FILE = UnitlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.UnitlyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iUnit.app/iUnit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unitly.app/Unitly";
 			};
 			name = Release;
 		};
@@ -408,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -462,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -474,18 +480,19 @@
 		};
 		0471F7E423FFA55D000A464C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86CA637BFFEDF85361D4DD05 /* Pods-Minimalist Unit Converter.debug.xcconfig */;
+			baseConfigurationReference = 3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
-				INFOPLIST_FILE = "Minimalist Unit Converter/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Unitly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.US---EU-Offline-Unit-Converter";
-				PRODUCT_NAME = iUnit;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.Unitly;
+				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,18 +500,19 @@
 		};
 		0471F7E523FFA55D000A464C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02C39C1765627150E8806F8A /* Pods-Minimalist Unit Converter.release.xcconfig */;
+			baseConfigurationReference = 12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
-				INFOPLIST_FILE = "Minimalist Unit Converter/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Unitly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.US---EU-Offline-Unit-Converter";
-				PRODUCT_NAME = iUnit;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.Unitly;
+				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,16 +521,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0413C2102437080800B3DE86 /* Build configuration list for PBXNativeTarget "iUnitTests" */ = {
+		04679FDB24372F2100EFAD02 /* Build configuration list for PBXNativeTarget "UnitlyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0413C20E2437080800B3DE86 /* Debug */,
-				0413C20F2437080800B3DE86 /* Release */,
+				04679FD924372F2100EFAD02 /* Debug */,
+				04679FDA24372F2100EFAD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0471F7CA23FFA556000A464C /* Build configuration list for PBXProject "Minimalist Unit Converter" */ = {
+		0471F7CA23FFA556000A464C /* Build configuration list for PBXProject "Unitly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0471F7E123FFA55D000A464C /* Debug */,
@@ -531,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0471F7E323FFA55D000A464C /* Build configuration list for PBXNativeTarget "Minimalist Unit Converter" */ = {
+		0471F7E323FFA55D000A464C /* Build configuration list for PBXNativeTarget "Unitly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0471F7E423FFA55D000A464C /* Debug */,
