@@ -37,7 +37,7 @@ struct Calculator {
         case "lenght":
             tempValue = num! * 0.3048
         case "volumen":
-            tempValue =  3.78541 * num!
+            tempValue =  3.785 * num!
         case "weight":
             tempValue = num! * 0.45359237
         case "lenght2":

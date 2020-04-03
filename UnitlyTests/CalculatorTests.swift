@@ -16,14 +16,14 @@ class CalculatorTests: XCTestCase {
     func testTemp() {
         let cal = Calculator()
         
-        //Result of entering Fahrenheit and geting Celsius
+        //Farenheit input To Celsius output
         let celsiusResult = cal.calResult(type: "temp", topValue: "1", bottonValue: "")
-        //1F = -17.22F
+        //1F = -17.22C
         XCTAssertEqual(celsiusResult, "-17.22")
         
-        //Result of entering Farenheit and geting Celsius
+        //Celsius input To Farenheit output
         let fahrenheitResult = cal.calResult(type: "temp", topValue: "", bottonValue: "1")
-        //1F = -17.22F
+        //1C = 33.80F
         XCTAssertEqual(fahrenheitResult, "33.80")
     }
     
@@ -31,15 +31,30 @@ class CalculatorTests: XCTestCase {
     func testLenght() {
         let cal = Calculator()
         
-        //Result for Foot input and Metre output
+        //Foot input To Metre output
         let metreResult = cal.calResult(type: "lenght", topValue: "1", bottonValue: "")
-        //1F = -17.22F
+        //1F = 0.30M
         XCTAssertEqual(metreResult, "0.30")
         
-        //Result for Metre input and Foot output
+        //Metre input To Foot output
         let footResult = cal.calResult(type: "lenght", topValue: "", bottonValue: "1")
-        //1F = -17.22F
+        //1M = 3.28F
         XCTAssertEqual(footResult, "3.28")
+    }
+    
+    //Gallon <-> Litre
+    func testVolumen() {
+        let cal = Calculator()
+        
+        //Gallon input To Litre output
+        let litreResult = cal.calResult(type: "volumen", topValue: "1", bottonValue: "")
+        //1G = 3.79L
+        XCTAssertEqual(litreResult, "3.79")
+        
+        //Litre input To Gallon output
+        let gallonResult = cal.calResult(type: "volumen", topValue: "", bottonValue: "1")
+        //1L = 0.26G
+        XCTAssertEqual(gallonResult, "0.26")
     }
     
     
