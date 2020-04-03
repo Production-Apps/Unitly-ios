@@ -13,7 +13,7 @@ import XCTest
 class CalculatorTests: XCTestCase {
 
     //Fahrenheit <-> Celsius
-    func testTemp() {
+    func testTemperature() {
         let cal = Calculator()
         
         //Farenheit input To Celsius output
@@ -57,6 +57,51 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(gallonResult, "0.26")
     }
     
+    //Lb <-> Kg
+    func testWeight() {
+        let cal = Calculator()
+        
+        //Pounds input To Kilograms output
+        let kilogramsResult = cal.calResult(type: .weight, topValue: "1", bottonValue: "")
+        //1G = 3.79L
+        XCTAssertEqual(kilogramsResult, "0.45")
+        
+        //Kilograms input To Pounds output
+        let poundsResult = cal.calResult(type: .weight, topValue: "", bottonValue: "1")
+        //1L = 0.26G
+        XCTAssertEqual(poundsResult, "2.20")
+    }
     
+    
+    //Inches <-> Cemtimeters
+    func testLenght2() {
+        let cal = Calculator()
+        
+        //Inches input To Cemtimeters output
+        let cemtimetersResult = cal.calResult(type: .lenght2, topValue: "1", bottonValue: "")
+        //1G = 3.79L
+        XCTAssertEqual(cemtimetersResult, "2.54")
+        
+        //Cemtimeters input To Inches output
+        let inchesResult = cal.calResult(type: .lenght2, topValue: "", bottonValue: "1")
+        //1L = 0.26G
+        XCTAssertEqual(inchesResult, "0.39")
+    }
+    
+    
+    //Miles <-> Kilometers
+    func testDistance() {
+        let cal = Calculator()
+        
+        //Miles input To Kilometers output
+        let kilometersResult = cal.calResult(type: .distance, topValue: "1", bottonValue: "")
+        //1G = 3.79L
+        XCTAssertEqual(kilometersResult, "1.61")
+        
+        //Kilometers input To Miles output
+        let milesResult = cal.calResult(type: .distance, topValue: "", bottonValue: "1")
+        //1L = 0.26G
+        XCTAssertEqual(milesResult, "0.62")
+    }
 
 }
