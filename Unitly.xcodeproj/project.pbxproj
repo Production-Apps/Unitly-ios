@@ -68,6 +68,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0436A3A82437796B00A8461B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */,
+				0471F7D823FFA557000A464C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0436A3A92437798A00A8461B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0471F7D623FFA557000A464C /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0436A3AA243779E700A8461B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0471F7E6240171C9000A464C /* Calculator.swift */,
+				0471F7D223FFA557000A464C /* AppDelegate.swift */,
+				0471F7D423FFA557000A464C /* SceneDelegate.swift */,
+				0471F7DB23FFA55D000A464C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		04679FD324372F2100EFAD02 /* UnitlyTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,14 +128,10 @@
 		0471F7D123FFA557000A464C /* Unitly */ = {
 			isa = PBXGroup;
 			children = (
-				0471F7D223FFA557000A464C /* AppDelegate.swift */,
-				0471F7D423FFA557000A464C /* SceneDelegate.swift */,
-				0471F7E6240171C9000A464C /* Calculator.swift */,
-				0471F7D623FFA557000A464C /* ViewController.swift */,
-				0471F7D823FFA557000A464C /* Main.storyboard */,
-				0471F7DB23FFA55D000A464C /* Assets.xcassets */,
-				0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */,
 				0471F7E023FFA55D000A464C /* Info.plist */,
+				0436A3A82437796B00A8461B /* Storyboards */,
+				0436A3A92437798A00A8461B /* View Controllers */,
+				0436A3AA243779E700A8461B /* Resources */,
 			);
 			path = Unitly;
 			sourceTree = "<group>";

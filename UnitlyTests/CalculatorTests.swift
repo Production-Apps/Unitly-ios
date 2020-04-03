@@ -43,16 +43,16 @@ class CalculatorTests: XCTestCase {
     }
     
     //Gallon <-> Litre
-    func testVolumen() {
+    func testVolume() {
         let cal = Calculator()
         
         //Gallon input To Litre output
-        let litreResult = cal.calResult(type: "volumen", topValue: "1", bottonValue: "")
+        let litreResult = cal.calResult(type: "volume", topValue: "1", bottonValue: "")
         //1G = 3.79L
         XCTAssertEqual(litreResult, "3.79")
         
         //Litre input To Gallon output
-        let gallonResult = cal.calResult(type: "volumen", topValue: "", bottonValue: "1")
+        let gallonResult = cal.calResult(type: "volume", topValue: "", bottonValue: "1")
         //1L = 0.26G
         XCTAssertEqual(gallonResult, "0.26")
     }

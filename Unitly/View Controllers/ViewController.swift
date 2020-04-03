@@ -158,7 +158,7 @@ class ViewController: UIViewController {
         case "lenght2":
             topLabel.text = "Inch"
             bottonLabel.text = "CM"
-        case "volumen":
+        case "volume":
             topLabel.text = "Gallon"
             bottonLabel.text = "Litre"
         case "weight":
