@@ -8,9 +8,19 @@
 
 import Foundation
 
+
+enum OperationType: String {
+    case temperature
+    case length
+    case volume
+    case weight
+    case lenght2
+    case distance
+}
+
 struct Calculator {
 
-    func calResult(type: String, topValue: String = "", bottonValue: String = "") -> String {
+    func calResult(type: OperationType, topValue: String = "", bottonValue: String = "") -> String {
         
         
         var finalValue = 00.00
@@ -26,21 +36,21 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    private func topEquation(for type: String,value topValue:String ) -> Double{
+    private func topEquation(for type: OperationType,value topValue:String ) -> Double{
         
         var tempValue = 00.00
         let num = Double(topValue)
         
         switch type {
-        case "temp":
+        case .temperature:
             tempValue = (num! - 32) * 5/9
-        case "lenght":
+        case .length:
             tempValue = num! * 0.3048
-        case "volume":
+        case .volume:
             tempValue =  3.785 * num!
-        case "weight":
+        case .weight:
             tempValue = num! * 0.45359237
-        case "lenght2":
+        case .lenght2:
             tempValue = num! * 2.54
         default:
             tempValue = 1.609 * num!
@@ -50,22 +60,22 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    private func bottonEquation(for type: String,value bottonValue:String ) -> Double{
+    private func bottonEquation(for type: OperationType,value bottonValue:String ) -> Double{
         
         
         var tempValue = 00.00
         let num = Double(bottonValue)
         
         switch type {
-        case "temp":
+        case .temperature:
             tempValue = num! * 9/5 + 32
-        case "lenght":
+        case .length:
             tempValue = num! * 3.28084
-        case "volume":
+        case .volume:
             tempValue = num! * 0.2641
-        case "weight":
+        case .weight:
             tempValue = num! * 2.2046226218
-        case "lenght2":
+        case .lenght2:
             tempValue = num! / 2.54
         default:
             tempValue = 0.621 * num!
@@ -75,3 +85,4 @@ struct Calculator {
     
     
 }
+

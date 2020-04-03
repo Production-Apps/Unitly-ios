@@ -129,7 +129,7 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="E5B-w6-BvX"/>
-                                            <barButtonItem title="temp" id="9VS-th-3X7">
+                                            <barButtonItem title="temperature" id="9VS-th-3X7">
                                                 <connections>
                                                     <action selector="tempButtonPressed:" destination="9js-8i-BYC" id="hEV-Qn-qbQ"/>
                                                 </connections>

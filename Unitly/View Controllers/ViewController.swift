@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     //MARK: - Properties
     var calculator = Calculator()
-    var currentSelection = ""
+    var currentSelection: OperationType = .distance
     
     
 
@@ -124,7 +124,8 @@ class ViewController: UIViewController {
     //Set the selected toolbar button as active
     func setActiveButton(buttonSelected: UIBarButtonItem){
         guard let selectedButton = buttonSelected.title else { return }
-       currentSelection(selectedButton)
+        
+        currentSelection(OperationType(rawValue: selectedButton)!)
         
         //Array of button IBOutlets
         let buttonsArray = [distanceButton,temperatureButton,lengthButton, volumenButton, weightButton, length2Button ]
@@ -141,7 +142,7 @@ class ViewController: UIViewController {
     
     
     //Change the placeholder base on current delection
-    func currentSelection(_ selectedButton: String)  {
+    func currentSelection(_ selectedButton: OperationType)  {
         
         //Clear textField every time user change selection
         clearTextField()
@@ -149,28 +150,28 @@ class ViewController: UIViewController {
         currentSelection = selectedButton
         //Change placeholder
         switch selectedButton {
-        case "temp":
+        case .temperature:
             topLabel.text = "F"
             bottonLabel.text = "C"
-        case "lenght":
+        case .length :
             topLabel.text = "Foot"
             bottonLabel.text = "Metre"
-        case "lenght2":
+        case .lenght2:
             topLabel.text = "Inch"
             bottonLabel.text = "CM"
-        case "volume":
+        case .volume :
             topLabel.text = "Gallon"
             bottonLabel.text = "Litre"
-        case "weight":
+        case .weight :
             topLabel.text = "Lb"
             bottonLabel.text = "Kg"
         default:
             topLabel.text = "Miles"
             bottonLabel.text = "KM"
-          
+            
         }
     }
-
+    
     //Clear fields
     func clearTextField() {
         topTextField.placeholder =  ""
