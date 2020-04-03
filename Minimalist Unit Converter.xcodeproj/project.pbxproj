@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0413C20A2437080800B3DE86 /* iUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C2092437080800B3DE86 /* iUnitTests.swift */; };
+		04679FAB24370ED600EFAD02 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04679FAA24370ED600EFAD02 /* CalculatorTests.swift */; };
 		0471F7D323FFA557000A464C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D223FFA557000A464C /* AppDelegate.swift */; };
 		0471F7D523FFA557000A464C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D423FFA557000A464C /* SceneDelegate.swift */; };
 		0471F7D723FFA557000A464C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D623FFA557000A464C /* ViewController.swift */; };
@@ -31,8 +31,8 @@
 /* Begin PBXFileReference section */
 		02C39C1765627150E8806F8A /* Pods-Minimalist Unit Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist Unit Converter.release.xcconfig"; path = "Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter.release.xcconfig"; sourceTree = "<group>"; };
 		0413C2072437080800B3DE86 /* iUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0413C2092437080800B3DE86 /* iUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iUnitTests.swift; sourceTree = "<group>"; };
 		0413C20B2437080800B3DE86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04679FAA24370ED600EFAD02 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		0471F7CF23FFA557000A464C /* iUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0471F7D223FFA557000A464C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0471F7D423FFA557000A464C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		0413C2082437080800B3DE86 /* iUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0413C2092437080800B3DE86 /* iUnitTests.swift */,
+				04679FAA24370ED600EFAD02 /* CalculatorTests.swift */,
 				0413C20B2437080800B3DE86 /* Info.plist */,
 			);
 			path = iUnitTests;
@@ -271,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0413C20A2437080800B3DE86 /* iUnitTests.swift in Sources */,
+				04679FAB24370ED600EFAD02 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
