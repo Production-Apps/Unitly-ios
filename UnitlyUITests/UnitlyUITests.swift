@@ -28,6 +28,9 @@ class UnitlyUITests: XCTestCase {
     
     func testTextFields() {
         
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.buttons["distance"].tap()
+        
         //Top TextField
         let topTextField = app.textFields["ViewController.topTextField"]
         let bottomTextField = app.textFields["ViewController.bottomTextField"]
@@ -35,9 +38,10 @@ class UnitlyUITests: XCTestCase {
         topTextField.tap()
         topTextField.typeText("1")
         app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
-        
+
         //Check result
-        XCTAssertNotNil(bottomTextField.value)
+        XCTAssertEqual(topTextField.value as! String, "1")
+        XCTAssertEqual(bottomTextField.value as! String, "1.61")
         
         //Bottom TextField
         bottomTextField.tap()
@@ -45,7 +49,8 @@ class UnitlyUITests: XCTestCase {
         app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
         
         //Check result
-        XCTAssertNotNil(topTextField.value)
+        XCTAssertEqual(topTextField.value as! String, "0.62")
+        XCTAssertEqual(bottomTextField.value as! String, "1")
     }
     
     
@@ -69,6 +74,42 @@ class UnitlyUITests: XCTestCase {
         toolbar.buttons["lenght2"].tap()
         toolbar.buttons["distance"].tap()
   
+    }
+    
+    
+    func testResetButton() {
+        //Top TextField
+        let topTextField = app.textFields["ViewController.topTextField"]
+        let bottomTextField = app.textFields["ViewController.bottomTextField"]
+        
+        topTextField.tap()
+        topTextField.typeText("1")
+        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
+        
+        //Clear fields
+        app/*@START_MENU_TOKEN@*/.staticTexts["Clear"]/*[[".buttons[\"Clear\"].staticTexts[\"Clear\"]",".buttons[\"ViewController.clearButton\"].staticTexts[\"Clear\"]",".staticTexts[\"Clear\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+
+        //Check result
+        XCTAssertNotEqual(topTextField.value as! String, "1")
+        XCTAssertEqual(bottomTextField.value as! String, "")
+    }
+    
+    func testStringInput() {
+        
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.buttons["volume"].tap()
+        
+        
+        //Top TextField
+        let topTextField = app.textFields["ViewController.topTextField"]
+        let bottomTextField = app.textFields["ViewController.bottomTextField"]
+        
+        topTextField.tap()
+        topTextField.typeText("this is a string test")
+        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
+
+        //Check result
+        XCTAssertEqual(bottomTextField.value as! String, "")
     }
     
    
