@@ -126,6 +126,7 @@ class ViewController: UIViewController {
     func setActiveButton(buttonSelected: UIBarButtonItem){
         guard let selectedButton = buttonSelected.title else { return }
         
+        //FIXME: Fix button type crashing app
         currentSelection(OperationType(rawValue: selectedButton)!)
         
         //Array of button IBOutlets
