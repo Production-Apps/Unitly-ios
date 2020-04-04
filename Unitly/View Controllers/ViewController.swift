@@ -138,8 +138,7 @@ class ViewController: UIViewController {
     //Set the selected toolbar button as active
     func setActiveButton(buttonSelected: UIBarButtonItem){
         guard let selectedButton = buttonSelected.title else { return }
-        
-        //FIXME: Fix button type crashing app
+    
         currentSelection(OperationType(rawValue: selectedButton) ?? .distance )
         
         //Array of button IBOutlets
@@ -246,6 +245,31 @@ extension ViewController: UITextFieldDelegate{
         
     }
     
+    //Prevent user from adding more than one decimal point and 2 decimal places
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         if let value = textField.text  {
+             // Allow to remove character (Backspace)
+             if string == "" {
+                 return true
+             }
+
+              //Prevent user from adding more than one decimal point
+             if value.contains(".") && string == "."{
+                 return false
+             }
+              //Prevent user from adding more than 2 decimal places
+             if value.contains("."){
+                 let limitDecimalPlace = 2
+                 let decimalPlace = value.components(separatedBy: ".").last
+                 if decimalPlace!.count < limitDecimalPlace {
+                     return true
+                 }else{
+                     return false
+                 }
+             }
+         }
+         return true
+     }
     
 }
 
