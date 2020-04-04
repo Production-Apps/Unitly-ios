@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         
         prepareLabelRadius()
         
+        prepareTextFields()
+        
     }
     
     //MARK: - IBActions
@@ -120,6 +122,17 @@ class ViewController: UIViewController {
         bottonLabel.clipsToBounds = true
         bottonLabel.layer.cornerRadius = 5
         bottonLabel.layer.maskedCorners =  [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+    }
+    
+    
+    func prepareTextFields() {
+        //Add padding to the left of the textfield
+        let tpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.topTextField.frame.height))
+        topTextField.leftView = tpaddingView
+        topTextField.leftViewMode = UITextField.ViewMode.always
+        let bpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.bottonTextField.frame.height))
+        bottonTextField.leftView = bpaddingView
+        bottonTextField.leftViewMode = UITextField.ViewMode.always
     }
     
     //Set the selected toolbar button as active
