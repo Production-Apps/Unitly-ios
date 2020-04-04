@@ -49,6 +49,16 @@
                ReferencedContainer = "container:Unitly.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0436A3AE24384FE400A8461B"
+               BuildableName = "UnitlyUITests.xctest"
+               BlueprintName = "UnitlyUITests"
+               ReferencedContainer = "container:Unitly.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
