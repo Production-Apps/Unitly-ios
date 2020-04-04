@@ -38,49 +38,44 @@ struct Calculator {
     //Calculates the result from the given value in the top textField to show on the botton textField
     private func topEquation(for type: OperationType,value topValue:String ) -> Double{
         
-        var tempValue = 00.00
-        let num = Double(topValue)
+        guard let num = Double(topValue) else {return 0}
         
         switch type {
+        case .distance:
+            return 1.609 * num
         case .temperature:
-            tempValue = (num! - 32) * 5/9
+            return (num - 32) * 5/9
         case .length:
-            tempValue = num! * 0.3048
+            return num * 0.3048
         case .volume:
-            tempValue =  3.785 * num!
+            return  3.785 * num
         case .weight:
-            tempValue = num! * 0.45359237
+            return num * 0.45359237
         case .lenght2:
-            tempValue = num! * 2.54
-        default:
-            tempValue = 1.609 * num!
+            return num * 2.54
         }
-        return tempValue
     }
     
     
     //Calculates the result from the given value in the botton textField to show on the top textField
     private func bottonEquation(for type: OperationType,value bottonValue:String ) -> Double{
-        
-        
-        var tempValue = 00.00
-        let num = Double(bottonValue)
+    
+        guard let num = Double(bottonValue) else {return 0}
         
         switch type {
+        case .distance:
+            return 0.621 * num
         case .temperature:
-            tempValue = num! * 9/5 + 32
+            return num * 9/5 + 32
         case .length:
-            tempValue = num! * 3.28084
+            return num * 3.28084
         case .volume:
-            tempValue = num! * 0.2641
+            return num * 0.2641
         case .weight:
-            tempValue = num! * 2.2046226218
+            return num * 2.2046226218
         case .lenght2:
-            tempValue = num! / 2.54
-        default:
-            tempValue = 0.621 * num!
+            return num / 2.54
         }
-        return tempValue
     }
     
     
