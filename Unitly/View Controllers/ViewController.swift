@@ -127,7 +127,7 @@ class ViewController: UIViewController {
         guard let selectedButton = buttonSelected.title else { return }
         
         //FIXME: Fix button type crashing app
-        currentSelection(OperationType(rawValue: selectedButton)!)
+        currentSelection(OperationType(rawValue: selectedButton) ?? .distance )
         
         //Array of button IBOutlets
         let buttonsArray = [distanceButton,temperatureButton,lengthButton, volumenButton, weightButton, length2Button ]
