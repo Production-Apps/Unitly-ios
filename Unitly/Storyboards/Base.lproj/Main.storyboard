@@ -139,7 +139,7 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="aNt-Ez-ty6"/>
-                                            <barButtonItem title="lenght" id="If3-uo-RE9">
+                                            <barButtonItem title="length" id="If3-uo-RE9">
                                                 <connections>
                                                     <action selector="lenghtButtonPressed:" destination="9js-8i-BYC" id="Tb4-oW-Bf1"/>
                                                 </connections>

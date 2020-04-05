@@ -142,7 +142,6 @@ class ViewController: UIViewController {
        
      }
     
-    
     func prepareToolBar() {
         
         distanceButton.image = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
@@ -179,7 +178,6 @@ class ViewController: UIViewController {
         bottonLabel.layer.maskedCorners =  [.layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
     
-    
     func prepareTextFields() {
         //Add padding to the left of the textfield
         let tpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.topTextField.frame.height))
@@ -210,8 +208,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    //Change the placeholder base on current delection
+    //Change the Label base on current selection
     func currentSelection(_ selectedButton: OperationType)  {
         
         //Clear textField every time user change selection
