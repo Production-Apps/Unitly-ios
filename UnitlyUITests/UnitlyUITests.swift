@@ -68,12 +68,12 @@ class UnitlyUITests: XCTestCase {
         let toolbar = app.toolbars["Toolbar"]
         
         toolbar.buttons["temperature"].tap()
-        toolbar.buttons["lenght"].tap()
+        toolbar.buttons["length"].tap()
         toolbar.buttons["volume"].tap()
         toolbar.buttons["weight"].tap()
-        toolbar.buttons["lenght2"].tap()
+        toolbar.buttons["length2"].tap()
         toolbar.buttons["distance"].tap()
-  
+
     }
     
     

@@ -78,12 +78,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Inches input To Cemtimeters output
-        let cemtimetersResult = cal.calResult(type: .lenght2, topValue: "1", bottonValue: "")
+        let cemtimetersResult = cal.calResult(type: .length2, topValue: "1", bottonValue: "")
         //1G = 3.79L
         XCTAssertEqual(cemtimetersResult, "2.54")
         
         //Cemtimeters input To Inches output
-        let inchesResult = cal.calResult(type: .lenght2, topValue: "", bottonValue: "1")
+        let inchesResult = cal.calResult(type: .length2, topValue: "", bottonValue: "1")
         //1L = 0.26G
         XCTAssertEqual(inchesResult, "0.39")
     }

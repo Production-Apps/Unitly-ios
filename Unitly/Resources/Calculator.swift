@@ -15,7 +15,7 @@ enum OperationType: String {
     case length
     case volume
     case weight
-    case lenght2
+    case length2
 }
 
 struct Calculator {
@@ -51,7 +51,7 @@ struct Calculator {
             return  3.785 * num
         case .weight:
             return num * 0.45359237
-        case .lenght2:
+        case .length2:
             return num * 2.54
         }
     }
@@ -73,7 +73,7 @@ struct Calculator {
             return num * 0.2641
         case .weight:
             return num * 2.2046226218
-        case .lenght2:
+        case .length2:
             return num / 2.54
         }
     }

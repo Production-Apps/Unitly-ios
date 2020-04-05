@@ -65,29 +65,9 @@ class ViewController: UIViewController {
     
     //MARK: - IBActions
     
-    //TODO: Refactor to use one IBAction for all buttons
-    @IBAction func distanceButtonPressed(_ sender: UIBarButtonItem) {
-        setActiveButton(buttonSelected: sender)
-    }
-    
-    @IBAction func tempButtonPressed(_ sender: UIBarButtonItem) {
-        setActiveButton(buttonSelected: sender)
-    }
-    
-    @IBAction func lenghtButtonPressed(_ sender: UIBarButtonItem) {
-        setActiveButton(buttonSelected: sender)
-    }
-    
-    @IBAction func volumenButtonPressed(_ sender: UIBarButtonItem) {
-        setActiveButton(buttonSelected: sender)
-    }
-    
-    @IBAction func weightButtonPressed(_ sender: UIBarButtonItem) {
-         setActiveButton(buttonSelected: sender)
-    }
-    @IBAction func lenght2ButtonPressed(_ sender: UIBarButtonItem) {
-        setActiveButton(buttonSelected: sender)
-    }
+    @IBAction func toolbarButtonPressed(_ sender: UIBarButtonItem) {
+           setActiveButton(buttonSelected: sender)
+       }
     
     @IBAction func clearButton(_ sender: UIButton) {
         clearTextField()
@@ -223,7 +203,7 @@ class ViewController: UIViewController {
         case .length :
             topLabel.text = "Foot"
             bottonLabel.text = "Metre"
-        case .lenght2:
+        case .length2:
             topLabel.text = "Inch"
             bottonLabel.text = "CM"
         case .volume :

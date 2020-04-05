@@ -129,37 +129,37 @@
                                         <items>
                                             <barButtonItem title="distance" id="lwL-fa-KJa">
                                                 <connections>
-                                                    <action selector="distanceButtonPressed:" destination="9js-8i-BYC" id="WM1-SM-ENf"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="PyW-wu-zTY"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="sSF-Iu-xDs"/>
                                             <barButtonItem title="temperature" id="3QM-4o-dP4">
                                                 <connections>
-                                                    <action selector="tempButtonPressed:" destination="9js-8i-BYC" id="M8W-x8-tsj"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="uv0-et-Oqz"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="aNt-Ez-ty6"/>
                                             <barButtonItem title="length" id="If3-uo-RE9">
                                                 <connections>
-                                                    <action selector="lenghtButtonPressed:" destination="9js-8i-BYC" id="Tb4-oW-Bf1"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="kJI-35-OHn"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="qBY-Tx-etZ"/>
                                             <barButtonItem title="volume" id="bBG-Zh-405">
                                                 <connections>
-                                                    <action selector="volumenButtonPressed:" destination="9js-8i-BYC" id="oee-uu-pOa"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="m0T-tx-dqY"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="qXK-Ui-YFb"/>
                                             <barButtonItem title="weight" id="kyp-FH-aTo">
                                                 <connections>
-                                                    <action selector="weightButtonPressed:" destination="9js-8i-BYC" id="Lvb-lI-7jW"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="fua-IL-zaV"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="cum-2u-lWk"/>
-                                            <barButtonItem title="lenght2" id="BlR-Sc-P2o">
+                                            <barButtonItem title="length2" id="BlR-Sc-P2o">
                                                 <connections>
-                                                    <action selector="lenght2ButtonPressed:" destination="9js-8i-BYC" id="RzT-MR-CE5"/>
+                                                    <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="FIh-4Q-EJD"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
