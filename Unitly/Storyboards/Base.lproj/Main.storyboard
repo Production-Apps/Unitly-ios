@@ -188,8 +188,8 @@
                         <viewLayoutGuide key="safeArea" id="hez-Bh-dND"/>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="9db-fN-bKe" id="ycy-uA-Clu"/>
                         <outlet property="bottonLabel" destination="jh7-OE-WIJ" id="TUF-ci-vBb"/>
-                        <outlet property="bottonTextField" destination="9db-fN-bKe" id="ycy-uA-Clu"/>
                         <outlet property="clearButton" destination="xfA-eV-06J" id="iCU-A8-vVW"/>
                         <outlet property="distanceButton" destination="lwL-fa-KJa" id="w0B-sV-g8E"/>
                         <outlet property="length2Button" destination="BlR-Sc-P2o" id="3V2-Lq-tjK"/>

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var bottonTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottonLabel: UILabel!
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         topTextField.delegate = self
-        bottonTextField.delegate = self
+        bottomTextField.delegate = self
         
         prepareToolBar()
         
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
        doneToolbar.sizeToFit()
        
        self.topTextField.inputAccessoryView = doneToolbar
-        self.bottonTextField.inputAccessoryView = doneToolbar
+        self.bottomTextField.inputAccessoryView = doneToolbar
        
      }
     
@@ -149,9 +149,9 @@ class ViewController: UIViewController {
         topTextField.layer.cornerRadius = 5
         topTextField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
-        bottonTextField.clipsToBounds = true
-        bottonTextField.layer.cornerRadius = 5
-        bottonTextField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        bottomTextField.clipsToBounds = true
+        bottomTextField.layer.cornerRadius = 5
+        bottomTextField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
         bottonLabel.clipsToBounds = true
         bottonLabel.layer.cornerRadius = 5
@@ -163,13 +163,11 @@ class ViewController: UIViewController {
         let tpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.topTextField.frame.height))
         topTextField.leftView = tpaddingView
         topTextField.leftViewMode = UITextField.ViewMode.always
-        let bpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.bottonTextField.frame.height))
-        bottonTextField.leftView = bpaddingView
-        bottonTextField.leftViewMode = UITextField.ViewMode.always
+        let bpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.bottomTextField.frame.height))
+        bottomTextField.leftView = bpaddingView
+        bottomTextField.leftViewMode = UITextField.ViewMode.always
     }
     
-    //FIXME: Issue with the first Lenth which is selecting distance instead
-    //Set the selected toolbar button as active
     func setActiveButton(buttonSelected: UIBarButtonItem){
         guard let selectedButton = buttonSelected.title else { return }
     
@@ -223,8 +221,8 @@ class ViewController: UIViewController {
     func clearTextField() {
         topTextField.placeholder =  ""
         topTextField.text = ""
-        bottonTextField.text = ""
-        bottonTextField.placeholder =  ""
+        bottomTextField.text = ""
+        bottomTextField.placeholder =  ""
     }
     
     
@@ -232,7 +230,7 @@ class ViewController: UIViewController {
     
     func getResult() {
         guard let top = topTextField.text else { return }
-        guard let botton = bottonTextField.text else { return }
+        guard let botton = bottomTextField.text else { return }
         
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
         if top.isEmpty{
@@ -244,7 +242,7 @@ class ViewController: UIViewController {
         }else if botton.isEmpty{
             //check if the string can be converted to a double
             if top.double != nil{
-                bottonTextField.text = calculator.calResult(type: currentSelection, topValue: top, bottonValue: "")
+                bottomTextField.text = calculator.calResult(type: currentSelection, topValue: top, bottonValue: "")
             }
             
         }
@@ -252,7 +250,7 @@ class ViewController: UIViewController {
     
     @objc func doneButtonAction(){
         topTextField.endEditing(true)
-        bottonTextField.endEditing(true)
+        bottomTextField.endEditing(true)
         getResult()
     }
     
@@ -271,6 +269,12 @@ extension ViewController: UITextFieldDelegate{
         return true
     }
     
+    //In case an ipad user press return button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //Dismiss keyboard after user click return
+        doneButtonAction()
+        return true
+    }
 
     //Prevent user from adding more than one decimal point and 2 decimal places
      func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
