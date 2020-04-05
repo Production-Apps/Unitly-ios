@@ -16,7 +16,9 @@
 		0471F7DC23FFA55D000A464C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DB23FFA55D000A464C /* Assets.xcassets */; };
 		0471F7DF23FFA55D000A464C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */; };
 		0471F7E7240171C9000A464C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7E6240171C9000A464C /* Calculator.swift */; };
+		1CAE0517C099A12851165F49 /* Pods_Unitly_UnitlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D5616D8958797153F2CAC8 /* Pods_Unitly_UnitlyUITests.framework */; };
 		91E1036B0AA493EB00FE08FE /* Pods_Unitly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */; };
+		EFFB933EEA0BB6970FC35F5D /* Pods_UnitlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497FC62D58E25D88F99020B9 /* Pods_UnitlyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +55,17 @@
 		0471F7DE23FFA55D000A464C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0471F7E023FFA55D000A464C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0471F7E6240171C9000A464C /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		0D4E7E22C780A6E6FDB89F3B /* Pods-UnitlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitlyTests.debug.xcconfig"; path = "Target Support Files/Pods-UnitlyTests/Pods-UnitlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.release.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.release.xcconfig"; sourceTree = "<group>"; };
 		3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.debug.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.debug.xcconfig"; sourceTree = "<group>"; };
 		4877EECF0136D3CD674A1ACE /* Pods_Minimalist_Unit_Converter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minimalist_Unit_Converter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		497FC62D58E25D88F99020B9 /* Pods_UnitlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitlyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CECAB76AAA30C898CF0DD7 /* Pods-Unitly-UnitlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly-UnitlyUITests.release.xcconfig"; path = "Target Support Files/Pods-Unitly-UnitlyUITests/Pods-Unitly-UnitlyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		78D5616D8958797153F2CAC8 /* Pods_Unitly_UnitlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unitly_UnitlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CA637BFFEDF85361D4DD05 /* Pods-Minimalist Unit Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist Unit Converter.debug.xcconfig"; path = "Target Support Files/Pods-Minimalist Unit Converter/Pods-Minimalist Unit Converter.debug.xcconfig"; sourceTree = "<group>"; };
 		DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unitly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E31E825A382D5F275CD8F030 /* Pods-Unitly-UnitlyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly-UnitlyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Unitly-UnitlyUITests/Pods-Unitly-UnitlyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FB770C3B3A0C22F7D8290630 /* Pods-UnitlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitlyTests.release.xcconfig"; path = "Target Support Files/Pods-UnitlyTests/Pods-UnitlyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAE0517C099A12851165F49 /* Pods_Unitly_UnitlyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFB933EEA0BB6970FC35F5D /* Pods_UnitlyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +180,8 @@
 			children = (
 				4877EECF0136D3CD674A1ACE /* Pods_Minimalist_Unit_Converter.framework */,
 				DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */,
+				78D5616D8958797153F2CAC8 /* Pods_Unitly_UnitlyUITests.framework */,
+				497FC62D58E25D88F99020B9 /* Pods_UnitlyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,6 +193,10 @@
 				02C39C1765627150E8806F8A /* Pods-Minimalist Unit Converter.release.xcconfig */,
 				3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */,
 				12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */,
+				E31E825A382D5F275CD8F030 /* Pods-Unitly-UnitlyUITests.debug.xcconfig */,
+				53CECAB76AAA30C898CF0DD7 /* Pods-Unitly-UnitlyUITests.release.xcconfig */,
+				0D4E7E22C780A6E6FDB89F3B /* Pods-UnitlyTests.debug.xcconfig */,
+				FB770C3B3A0C22F7D8290630 /* Pods-UnitlyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -192,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0436A3B824384FE500A8461B /* Build configuration list for PBXNativeTarget "UnitlyUITests" */;
 			buildPhases = (
+				9D7DC476073AAE7B499EF46F /* [CP] Check Pods Manifest.lock */,
 				0436A3AB24384FE400A8461B /* Sources */,
 				0436A3AC24384FE400A8461B /* Frameworks */,
 				0436A3AD24384FE400A8461B /* Resources */,
+				D4B1BAAC9C84D4BFF2A39AA6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04679FDB24372F2100EFAD02 /* Build configuration list for PBXNativeTarget "UnitlyTests" */;
 			buildPhases = (
+				0BA5E841232109F28C697DD1 /* [CP] Check Pods Manifest.lock */,
 				04679FCE24372F2100EFAD02 /* Sources */,
 				04679FCF24372F2100EFAD02 /* Frameworks */,
 				04679FD024372F2100EFAD02 /* Resources */,
@@ -314,6 +333,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0BA5E841232109F28C697DD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnitlyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3F40A05D6F9FE5CCD37621C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +392,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D7DC476073AAE7B499EF46F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unitly-UnitlyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4B1BAAC9C84D4BFF2A39AA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unitly-UnitlyUITests/Pods-Unitly-UnitlyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unitly-UnitlyUITests/Pods-Unitly-UnitlyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unitly-UnitlyUITests/Pods-Unitly-UnitlyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -420,6 +500,7 @@
 /* Begin XCBuildConfiguration section */
 		0436A3B624384FE500A8461B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E31E825A382D5F275CD8F030 /* Pods-Unitly-UnitlyUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
@@ -440,6 +521,7 @@
 		};
 		0436A3B724384FE500A8461B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53CECAB76AAA30C898CF0DD7 /* Pods-Unitly-UnitlyUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
@@ -460,6 +542,7 @@
 		};
 		04679FD924372F2100EFAD02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D4E7E22C780A6E6FDB89F3B /* Pods-UnitlyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -481,6 +564,7 @@
 		};
 		04679FDA24372F2100EFAD02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB770C3B3A0C22F7D8290630 /* Pods-UnitlyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
