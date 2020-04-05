@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0400F14F2439A4F1002385C3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0400F14E2439A4F1002385C3 /* IQKeyboardManagerSwift */; };
 		0436A3B224384FE500A8461B /* UnitlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436A3B124384FE500A8461B /* UnitlyUITests.swift */; };
 		04679FDD24372F6800EFAD02 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04679FDC24372F6800EFAD02 /* CalculatorTests.swift */; };
 		0471F7D323FFA557000A464C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D223FFA557000A464C /* AppDelegate.swift */; };
@@ -91,7 +90,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91E1036B0AA493EB00FE08FE /* Pods_Unitly.framework in Frameworks */,
-				0400F14F2439A4F1002385C3 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +259,6 @@
 			);
 			name = Unitly;
 			packageProductDependencies = (
-				0400F14E2439A4F1002385C3 /* IQKeyboardManagerSwift */,
 			);
 			productName = "Minimalist Unit Converter";
 			productReference = 0471F7CF23FFA557000A464C /* Unitly.app */;
@@ -300,7 +297,6 @@
 			);
 			mainGroup = 0471F7C623FFA556000A464C;
 			packageReferences = (
-				0400F14D2439A4F1002385C3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 0471F7D023FFA557000A464C /* Products */;
 			projectDirPath = "";
@@ -786,25 +782,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0400F14D2439A4F1002385C3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0400F14E2439A4F1002385C3 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0400F14D2439A4F1002385C3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0471F7C723FFA556000A464C /* Project object */;
 }

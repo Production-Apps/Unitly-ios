@@ -35,7 +35,9 @@ class ViewController: UIViewController {
     var currentSelection: OperationType = .distance
     
     
-
+    
+    //MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +53,40 @@ class ViewController: UIViewController {
         
         prepareTextFields()
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
+    //Cleanup keyboard events
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func keyboardWillChange(notification: Notification) {
+        
+        //Keyboard size
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            //Substract so as not to move the entire view
+            let percent = keyboardRect.cgRectValue.height * 0.20 
+            view.frame.origin.y = -percent
+        }else{
+            view.frame.origin.y = 0
+        }
     }
     
     //MARK: - IBActions
+    
+    //TODO: Refactor to use one IBAction for all buttons
     @IBAction func distanceButtonPressed(_ sender: UIBarButtonItem) {
         setActiveButton(buttonSelected: sender)
     }
@@ -135,6 +168,7 @@ class ViewController: UIViewController {
         bottonTextField.leftViewMode = UITextField.ViewMode.always
     }
     
+    //FIXME: Issue with the first Lenth which is selecting distance instead
     //Set the selected toolbar button as active
     func setActiveButton(buttonSelected: UIBarButtonItem){
         guard let selectedButton = buttonSelected.title else { return }
@@ -165,8 +199,8 @@ class ViewController: UIViewController {
         //Change placeholder
         switch selectedButton {
         case .temperature:
-            topLabel.text = "F"
-            bottonLabel.text = "C"
+            topLabel.text = "°F"
+            bottonLabel.text = "°C"
         case .length :
             topLabel.text = "Foot"
             bottonLabel.text = "Metre"
