@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         
         prepareTextFields()
         
+        addDoneButtonOnKeyboard()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -60,29 +61,7 @@ class ViewController: UIViewController {
         
     }
     
-    //Cleanup keyboard events
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    @objc func keyboardWillChange(notification: Notification) {
-        
-        //Keyboard size
-        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) else {
-            return
-        }
-        
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-            notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            //Substract so as not to move the entire view
-            let percent = keyboardRect.cgRectValue.height * 0.20 
-            view.frame.origin.y = -percent
-        }else{
-            view.frame.origin.y = 0
-        }
-    }
+
     
     //MARK: - IBActions
     
@@ -114,10 +93,55 @@ class ViewController: UIViewController {
         clearTextField()
     }
     
-
-    
     
     //MARK: - Setup UI
+    
+    
+    //Cleanup keyboard events
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    //Use to adjust view when keyboard appears
+    @objc func keyboardWillChange(notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            //Substract so as not to move the entire view
+            let percent = keyboardRect.cgRectValue.height * 0.30
+            view.frame.origin.y = -percent
+        }else{
+            view.frame.origin.y = 0
+        }
+    }
+    
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle = UIBarStyle.default
+       
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonAction))
+       
+       var items = [UIBarButtonItem]()
+       items.append(flexSpace)
+       items.append(done)
+       
+       doneToolbar.items = items
+       doneToolbar.sizeToFit()
+       
+       self.topTextField.inputAccessoryView = doneToolbar
+        self.bottonTextField.inputAccessoryView = doneToolbar
+       
+     }
+    
     
     func prepareToolBar() {
         
@@ -134,8 +158,6 @@ class ViewController: UIViewController {
         length2Button.image = UIImage.fontAwesomeIcon(name: .rulerVertical , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
         
         clearButton.layer.cornerRadius = 10
-        
-        
     }
     
     func prepareLabelRadius(){
@@ -228,35 +250,8 @@ class ViewController: UIViewController {
         bottonTextField.placeholder =  ""
     }
     
- 
-}
-
-
-//MARK: - UITextFieldDelegate
-
-extension ViewController: UITextFieldDelegate{
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        //Clear fields when the user try to enter a new value to start over
-        clearTextField()
-        
-        return true
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //Dismiss keyboard after user click return
-        topTextField.endEditing(true)
-        bottonTextField.endEditing(true)
-        return true
-    }
-    
-    //Call the correct method after pressing return
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        getResult()
-    }
-    
-    
+    //MARK: - Actions
     
     func getResult() {
         guard let top = topTextField.text else { return }
@@ -276,9 +271,30 @@ extension ViewController: UITextFieldDelegate{
             }
             
         }
-        
     }
     
+    @objc func doneButtonAction(){
+        topTextField.endEditing(true)
+        bottonTextField.endEditing(true)
+        getResult()
+    }
+    
+    
+}
+
+
+//MARK: - UITextFieldDelegate
+
+extension ViewController: UITextFieldDelegate{
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        //Clear fields when the user try to enter a new value to start over
+        clearTextField()
+        
+        return true
+    }
+    
+
     //Prevent user from adding more than one decimal point and 2 decimal places
      func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
          if let value = textField.text  {
