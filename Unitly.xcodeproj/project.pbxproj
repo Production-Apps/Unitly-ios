@@ -715,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.Unitly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnit;
 				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -735,7 +735,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.Unitly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnit;
 				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
