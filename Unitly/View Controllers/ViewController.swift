@@ -31,9 +31,21 @@ class ViewController: UIViewController {
     
     
     //MARK: - Properties
-    var calculator = Calculator()
-    var currentSelection: OperationType = .distance
+    private var calculator = Calculator()
+    private var currentSelection: OperationType = .distance
     
+    private var topDisplayValue: Double {
+        get{
+            guard let dVal = Double(topTextField.text!) else { return 0.0 }
+            return dVal
+        }
+    }
+    private var bottomDisplayValue: Double {
+        get{
+            guard let dVal = Double(bottomTextField.text!) else { return 0.0 }
+            return dVal
+        }
+    }
     
     
     //MARK: - View lifecycle
@@ -47,7 +59,7 @@ class ViewController: UIViewController {
         prepareToolBar()
      
         //Selected distanceButton as default when view loads
-        setActiveButton(buttonSelected: distanceButton)
+        setActiveButton(selectedButton: distanceButton)
         
         prepareLabelRadius()
         
@@ -61,12 +73,10 @@ class ViewController: UIViewController {
         
     }
     
-
-    
     //MARK: - IBActions
     
     @IBAction func toolbarButtonPressed(_ sender: UIBarButtonItem) {
-           setActiveButton(buttonSelected: sender)
+           setActiveButton(selectedButton: sender)
        }
     
     @IBAction func clearButton(_ sender: UIButton) {
@@ -75,7 +85,6 @@ class ViewController: UIViewController {
     
     
     //MARK: - Setup UI
-    
     
     //Cleanup keyboard events
     deinit {
@@ -100,8 +109,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    func addDoneButtonOnKeyboard() {
+    private func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.default
        
@@ -122,7 +130,7 @@ class ViewController: UIViewController {
        
      }
     
-    func prepareToolBar() {
+    private func prepareToolBar() {
         
         distanceButton.image = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
         
@@ -139,7 +147,7 @@ class ViewController: UIViewController {
         clearButton.layer.cornerRadius = 10
     }
     
-    func prepareLabelRadius(){
+    private func prepareLabelRadius(){
         
         topLabel.clipsToBounds = true
         topLabel.layer.cornerRadius = 5
@@ -158,7 +166,7 @@ class ViewController: UIViewController {
         bottonLabel.layer.maskedCorners =  [.layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
     
-    func prepareTextFields() {
+    private func prepareTextFields() {
         //Add padding to the left of the textfield
         let tpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.topTextField.frame.height))
         topTextField.leftView = tpaddingView
@@ -168,8 +176,8 @@ class ViewController: UIViewController {
         bottomTextField.leftViewMode = UITextField.ViewMode.always
     }
     
-    func setActiveButton(buttonSelected: UIBarButtonItem){
-        guard let selectedButton = buttonSelected.title else { return }
+    private func setActiveButton(selectedButton: UIBarButtonItem){
+        guard let selectedButton = selectedButton.title else { return }
     
         currentSelection(OperationType(rawValue: selectedButton) ?? .distance )
         
@@ -187,7 +195,7 @@ class ViewController: UIViewController {
     }
     
     //Change the Label base on current selection
-    func currentSelection(_ selectedButton: OperationType)  {
+    private func currentSelection(_ selectedButton: OperationType)  {
         
         //Clear textField every time user change selection
         clearTextField()
@@ -218,7 +226,7 @@ class ViewController: UIViewController {
     }
     
     //Clear fields
-    func clearTextField() {
+    private func clearTextField() {
         topTextField.placeholder =  ""
         topTextField.text = ""
         bottomTextField.text = ""
@@ -228,23 +236,15 @@ class ViewController: UIViewController {
     
     //MARK: - Actions
     
-    func getResult() {
-        guard let top = topTextField.text else { return }
-        guard let botton = bottomTextField.text else { return }
-        
+    private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        if top.isEmpty{
+        if topDisplayValue == 0 && bottomDisplayValue != 0{
             //check if the string can be converted to a double
-            if botton.double != nil {
-                topTextField.text = calculator.calResult(type: currentSelection, topValue: "", bottonValue: botton)
-            }
+            topTextField.text = calculator.calResult(type: currentSelection, topValue: 0, bottonValue: bottomDisplayValue)
             
-        }else if botton.isEmpty{
+        }else if bottomDisplayValue == 0 && topDisplayValue != 0{
             //check if the string can be converted to a double
-            if top.double != nil{
-                bottomTextField.text = calculator.calResult(type: currentSelection, topValue: top, bottonValue: "")
-            }
-            
+            bottomTextField.text = calculator.calResult(type: currentSelection, topValue: topDisplayValue, bottonValue: 0)
         }
     }
     
@@ -253,7 +253,6 @@ class ViewController: UIViewController {
         bottomTextField.endEditing(true)
         getResult()
     }
-    
     
 }
 
@@ -303,7 +302,6 @@ extension ViewController: UITextFieldDelegate{
      }
     
 }
-
 
 //MARK: - StringProtocol
 

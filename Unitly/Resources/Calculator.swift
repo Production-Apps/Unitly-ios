@@ -20,61 +20,57 @@ enum OperationType: String {
 
 struct Calculator {
 
-    func calResult(type: OperationType, topValue: String = "", bottonValue: String = "") -> String {
+    func calResult(type: OperationType, topValue: Double, bottonValue: Double) -> String {
         
         
-        var finalValue = 00.00
+        var finalValue: Double?
         
-        if !topValue.isEmpty{
+        if topValue != 0 {
             finalValue = topEquation(for: type, value: topValue)
-        }else if !bottonValue.isEmpty{
+        }else if bottonValue != 0{
             finalValue = bottonEquation(for: type, value: bottonValue)
         }
         //Return final value as String
-        return String(format:"%.2f", finalValue)
+        return String(format:"%.2f", finalValue ?? 0.0)
     }
     
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    private func topEquation(for type: OperationType,value topValue:String ) -> Double{
-        
-        guard let num = Double(topValue) else {return 0}
-        
+    private func topEquation(for type: OperationType,value topValue: Double ) -> Double{
+                
         switch type {
         case .distance:
-            return 1.609 * num
+            return 1.609 * topValue
         case .temperature:
-            return (num - 32) * 5/9
+            return (topValue - 32) * 5/9
         case .length:
-            return num * 0.3048
+            return topValue * 0.3048
         case .volume:
-            return  3.785 * num
+            return  3.785 * topValue
         case .weight:
-            return num * 0.45359237
+            return topValue * 0.45359237
         case .length2:
-            return num * 2.54
+            return topValue * 2.54
         }
     }
     
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    private func bottonEquation(for type: OperationType,value bottonValue:String ) -> Double{
-    
-        guard let num = Double(bottonValue) else {return 0}
-        
+    private func bottonEquation(for type: OperationType,value bottonValue: Double ) -> Double{
+            
         switch type {
         case .distance:
-            return 0.621 * num
+            return 0.621 * bottonValue
         case .temperature:
-            return num * 9/5 + 32
+            return bottonValue * 9/5 + 32
         case .length:
-            return num * 3.28084
+            return bottonValue * 3.28084
         case .volume:
-            return num * 0.2641
+            return bottonValue * 0.2641
         case .weight:
-            return num * 2.2046226218
+            return bottonValue * 2.2046226218
         case .length2:
-            return num / 2.54
+            return bottonValue / 2.54
         }
     }
     

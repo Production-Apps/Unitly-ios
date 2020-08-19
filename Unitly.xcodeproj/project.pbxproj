@@ -99,8 +99,8 @@
 		0436A3A82437796B00A8461B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */,
 				0471F7D823FFA557000A464C /* Main.storyboard */,
+				0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				0471F7E023FFA55D000A464C /* Info.plist */,
-				0436A3A82437796B00A8461B /* Storyboards */,
 				0436A3A92437798A00A8461B /* View Controllers */,
+				0436A3A82437796B00A8461B /* Storyboards */,
 				0436A3AA243779E700A8461B /* Resources */,
 			);
 			path = Unitly;
