@@ -234,17 +234,15 @@ class ViewController: UIViewController {
     }
     
     
-    //MARK: - Actions
+    //MARK: - General private methods
     
     private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        if topDisplayValue == 0 && bottomDisplayValue != 0{
-            //check if the string can be converted to a double
-            topTextField.text = calculator.calResult(type: currentSelection, topValue: 0, bottonValue: bottomDisplayValue)
+        if topDisplayValue == 0{
+            topTextField.text = calculator.calculateEquationForTopField(for: currentSelection, value: bottomDisplayValue)
             
-        }else if bottomDisplayValue == 0 && topDisplayValue != 0{
-            //check if the string can be converted to a double
-            bottomTextField.text = calculator.calResult(type: currentSelection, topValue: topDisplayValue, bottonValue: 0)
+        }else if bottomDisplayValue == 0 {
+            bottomTextField.text = calculator.calculateEquationForBottomField(for: currentSelection, value: topDisplayValue)
         }
     }
     
