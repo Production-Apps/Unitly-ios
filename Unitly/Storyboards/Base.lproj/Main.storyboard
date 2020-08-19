@@ -125,9 +125,8 @@
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-6k-mTk">
                                         <rect key="frame" x="0.0" y="-4" width="414" height="49"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <items>
-                                            <barButtonItem title="distance" id="lwL-fa-KJa">
+                                            <barButtonItem title="distance" image="speedometer" catalog="system" id="lwL-fa-KJa">
                                                 <connections>
                                                     <action selector="toolbarButtonPressed:" destination="9js-8i-BYC" id="PyW-wu-zTY"/>
                                                 </connections>
@@ -166,7 +165,7 @@
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </toolbar>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9gh-6k-mTk" secondAttribute="trailing" id="1Xy-XZ-9I7"/>
                                     <constraint firstAttribute="height" constant="70" id="IOb-i2-3FW"/>
@@ -208,6 +207,7 @@
     </scenes>
     <resources>
         <image name="equal" catalog="system" width="128" height="72"/>
+        <image name="speedometer" catalog="system" width="128" height="121"/>
         <image name="unit_converter" width="512" height="512"/>
     </resources>
 </document>

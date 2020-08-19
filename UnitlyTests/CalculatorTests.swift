@@ -23,7 +23,7 @@ class CalculatorTests: XCTestCase {
         
         //Celsius input To Farenheit output
         let fahrenheitResult = cal.calResult(type: .temperature, topValue: "", bottonValue: "1")
-        //1C = 33.80F
+        //1C = 33.80F 
         XCTAssertEqual(fahrenheitResult, "33.80")
     }
     

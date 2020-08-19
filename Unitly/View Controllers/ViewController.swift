@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         bottomTextField.delegate = self
         
         prepareToolBar()
-        
+     
         //Selected distanceButton as default when view loads
         setActiveButton(buttonSelected: distanceButton)
         
