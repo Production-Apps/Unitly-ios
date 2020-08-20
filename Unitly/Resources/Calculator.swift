@@ -22,9 +22,9 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    func calculateEquationForBottomField(for type: OperationType,value topValue: Double ) -> String {
+    func calculateEquationForBottomField(for type: OperationType,value topValue: Double ) -> Double {
     
-    var finalValue: Double?
+        var finalValue: Double?
         
     switch type {
     case .distance:
@@ -40,11 +40,11 @@ struct Calculator {
     case .length2:
         finalValue = topValue * 2.54
     }
-    return String(format:"%.2f", finalValue ?? 0.0)
+        return finalValue ?? 0.0
 }
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    func calculateEquationForTopField(for type: OperationType,value bottonValue: Double ) -> String {
+    func calculateEquationForTopField(for type: OperationType,value bottonValue: Double ) -> Double {
         
     var finalValue: Double?
         
@@ -62,7 +62,7 @@ struct Calculator {
     case .length2:
         finalValue = bottonValue / 2.54
     }
-    return String(format:"%.2f", finalValue ?? 0.0)
+        return finalValue ?? 0.0
 }
     
 }

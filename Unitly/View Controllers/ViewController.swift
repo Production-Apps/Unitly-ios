@@ -39,11 +39,20 @@ class ViewController: UIViewController {
             guard let dVal = Double(topTextField.text!) else { return 0.0 }
             return dVal
         }
+        
+        set{
+            topTextField.text = String(format: "%.2f", newValue)
+        }
     }
+    
     private var bottomDisplayValue: Double {
         get{
             guard let dVal = Double(bottomTextField.text!) else { return 0.0 }
             return dVal
+        }
+        
+        set{
+            bottomTextField.text = String(format: "%.2f", newValue)
         }
     }
     
@@ -239,10 +248,10 @@ class ViewController: UIViewController {
     private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
         if topDisplayValue == 0{
-            topTextField.text = calculator.calculateEquationForTopField(for: currentSelection, value: bottomDisplayValue)
+            topDisplayValue = calculator.calculateEquationForTopField(for: currentSelection, value: bottomDisplayValue)
             
         }else if bottomDisplayValue == 0 {
-            bottomTextField.text = calculator.calculateEquationForBottomField(for: currentSelection, value: topDisplayValue)
+            bottomDisplayValue = calculator.calculateEquationForBottomField(for: currentSelection, value: topDisplayValue)
         }
     }
     

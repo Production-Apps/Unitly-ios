@@ -17,12 +17,13 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Farenheit input To Celsius output
-        let celsiusResult = cal.calResult(type: .temperature, topValue: "1", bottonValue: "")
+        let celsiusResult = cal.calculateEquationForBottomField(for: .temperature, value: 1)
+        
         //1F = -17.22C
         XCTAssertEqual(celsiusResult, "-17.22")
         
         //Celsius input To Farenheit output
-        let fahrenheitResult = cal.calResult(type: .temperature, topValue: "", bottonValue: "1")
+        let fahrenheitResult = cal.calculateEquationForTopField(for: .temperature,value: 1)
         //1C = 33.80F 
         XCTAssertEqual(fahrenheitResult, "33.80")
     }
@@ -32,12 +33,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Foot input To Metre output
-        let metreResult = cal.calResult(type: .length, topValue: "1", bottonValue: "")
+        let metreResult = cal.calculateEquationForBottomField(for: .length, value: 1)
         //1F = 0.30M
         XCTAssertEqual(metreResult, "0.30")
         
         //Metre input To Foot output
-        let footResult = cal.calResult(type: .length, topValue: "", bottonValue: "1")
+        let footResult = cal.calculateEquationForTopField(for: .length,value: 1)
         //1M = 3.28F
         XCTAssertEqual(footResult, "3.28")
     }
@@ -47,12 +48,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Gallon input To Litre output
-        let litreResult = cal.calResult(type: .volume, topValue: "1", bottonValue: "")
+        let litreResult = cal.calculateEquationForTopField(for: .volume, value: 1)
         //1G = 3.79L
         XCTAssertEqual(litreResult, "3.79")
         
         //Litre input To Gallon output
-        let gallonResult = cal.calResult(type: .volume, topValue: "", bottonValue: "1")
+        let gallonResult = cal.calculateEquationForBottomField(for: .volume, value: 1)
         //1L = 0.26G
         XCTAssertEqual(gallonResult, "0.26")
     }
@@ -62,12 +63,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Pounds input To Kilograms output
-        let kilogramsResult = cal.calResult(type: .weight, topValue: "1", bottonValue: "")
+        let kilogramsResult = cal.calculateEquationForTopField(for: .weight, value: 1)
         //1G = 3.79L
         XCTAssertEqual(kilogramsResult, "0.45")
         
         //Kilograms input To Pounds output
-        let poundsResult = cal.calResult(type: .weight, topValue: "", bottonValue: "1")
+        let poundsResult = cal.calculateEquationForBottomField(for: .weight, value: 1)
         //1L = 0.26G
         XCTAssertEqual(poundsResult, "2.20")
     }
@@ -78,12 +79,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Inches input To Cemtimeters output
-        let cemtimetersResult = cal.calResult(type: .length2, topValue: "1", bottonValue: "")
+        let cemtimetersResult = cal.calculateEquationForTopField(for: .length2, value: 1)
         //1G = 3.79L
         XCTAssertEqual(cemtimetersResult, "2.54")
         
         //Cemtimeters input To Inches output
-        let inchesResult = cal.calResult(type: .length2, topValue: "", bottonValue: "1")
+        let inchesResult = cal.calculateEquationForBottomField(for: .length2, value: 1)
         //1L = 0.26G
         XCTAssertEqual(inchesResult, "0.39")
     }
@@ -94,12 +95,12 @@ class CalculatorTests: XCTestCase {
         let cal = Calculator()
         
         //Miles input To Kilometers output
-        let kilometersResult = cal.calResult(type: .distance, topValue: "1", bottonValue: "")
+        let kilometersResult = cal.calculateEquationForTopField(for: .distance, value: 1)
         //1G = 3.79L
         XCTAssertEqual(kilometersResult, "1.61")
         
         //Kilometers input To Miles output
-        let milesResult = cal.calResult(type: .distance, topValue: "", bottonValue: "1")
+        let milesResult = cal.calculateEquationForBottomField(for: .distance, value: 1)
         //1L = 0.26G
         XCTAssertEqual(milesResult, "0.62")
     }
