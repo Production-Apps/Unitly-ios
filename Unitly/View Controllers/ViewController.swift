@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottonLabel: UILabel!
     
+    @IBOutlet weak var switchFormulaButton: UIButton!
     
     //MARK: - Properties
     private var calculator = Calculator()
@@ -57,6 +58,8 @@ class ViewController: UIViewController {
         }
     }
     
+    private var isMetricEnable: Bool = true
+    
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -78,21 +81,32 @@ class ViewController: UIViewController {
         }else{
             bottomValueLabel.text! += (sender.titleLabel?.text)!
         }
-        
+        getResult()
     }
     
     @IBAction func calcTypeButtonPressed(_ sender: UIButton) {
         setActiveButton(sender)
        }
     
-    @IBAction func clearButton(_ sender: UIButton) {
+    @IBAction func deleteButton(_ sender: UIButton) {
         deleteLastNum()
+    }
+    
+    @IBAction func clearFields(_ sender: UIButton) {
+        clearValueField()
+    }
+    
+    @IBAction func switchFormulaButtonPressed(_ sender: UIButton) {
+        isMetricEnable.toggle()
+        setLabelName()
     }
     
     
     //MARK: - Setup UI
     
     private func prepareToolBar() {
+        
+        switchFormulaButton.layer.cornerRadius = 10
        
         let distImg = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
         distanceButton.setImage( distImg, for: .normal)
@@ -119,8 +133,9 @@ class ViewController: UIViewController {
         
         let tag  = selectedButton.tag
         
-        currentSelection(OperationType.init(rawValue: String(tag)) ?? .distance)
+        currentSelection = OperationType.init(rawValue: String(tag))!
         
+        setLabelName()
         //Change the color to blue if selected else to gray
         for button in buttonsArray{
             if button?.tag == tag {
@@ -132,33 +147,31 @@ class ViewController: UIViewController {
     }
     
     //Change the Label base on current selection
-    private func currentSelection(_ selectedButton: OperationType)  {
+    private func setLabelName()  {
         
         //Clear textField every time user change selection
         clearValueField()
-        //set the currently selected button to also use it in textFieldDidEndEditing
-        currentSelection = selectedButton
+
         //Change placeholder
-        switch selectedButton {
+        switch currentSelection {
         case .temperature:
-            topLabel.text = "°F"
-            bottonLabel.text = "°C"
+            topLabel.text = isMetricEnable ? "°F" : "°C"
+            bottonLabel.text = isMetricEnable ? "°C" : "°F"
         case .length :
-            topLabel.text = "Foot"
-            bottonLabel.text = "Metre"
+            topLabel.text = isMetricEnable ? "Foot" : "Metre"
+            bottonLabel.text = isMetricEnable ? "Metre" :  "Foot"
         case .length2:
-            topLabel.text = "Inch"
-            bottonLabel.text = "CM"
+            topLabel.text = isMetricEnable ? "Inch" : "cm"
+            bottonLabel.text = isMetricEnable ? "cm" : "Inch"
         case .volume :
-            topLabel.text = "Gallon"
-            bottonLabel.text = "Litre"
+            topLabel.text = isMetricEnable ? "Gallon" : "Litre"
+            bottonLabel.text = isMetricEnable ? "Litre" : "Gallon"
         case .weight :
-            topLabel.text = "Lb"
-            bottonLabel.text = "Kg"
+            topLabel.text = isMetricEnable ? "Lb" : "Kg"
+            bottonLabel.text = isMetricEnable ? "Kg" : "Lb"
         default:
-            topLabel.text = "Miles"
-            bottonLabel.text = "KM"
-            
+            topLabel.text = isMetricEnable ? "Miles" : "Km"
+            bottonLabel.text = isMetricEnable ? "Km" : "Miles"
         }
     }
     
@@ -168,6 +181,7 @@ class ViewController: UIViewController {
         if bottomValueLabel.text == "" {
             bottomValueLabel.text = "0"
         }
+         getResult()
     }
     
     private func clearValueField() {
@@ -180,11 +194,10 @@ class ViewController: UIViewController {
     
     private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        if topDisplayValue == 0{
-            topDisplayValue = calculator.calculateEquationForTopField(for: currentSelection, value: bottomDisplayValue)
-            
-        }else if bottomDisplayValue == 0 {
-            bottomDisplayValue = calculator.calculateEquationForBottomField(for: currentSelection, value: topDisplayValue)
+        if isMetricEnable {
+            topDisplayValue = calculator.calculateMetricToImperial(for: currentSelection, value: bottomDisplayValue)
+        }else{
+            topDisplayValue = calculator.calculateImperialToMetric(for: currentSelection, value: bottomDisplayValue)
         }
     }
     

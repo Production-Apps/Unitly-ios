@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper 4" translatesAutoresizingMaskIntoConstraints="NO" id="vww-n1-t13">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper 43" translatesAutoresizingMaskIntoConstraints="NO" id="vww-n1-t13">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-Ua-0Sz">
@@ -58,39 +58,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY9-34-SYI" userLabel="LowerView">
                                 <rect key="frame" x="0.0" y="249" width="414" height="75"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-hI-abH">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-hI-abH">
                                         <rect key="frame" x="16" y="17" width="382" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-yU-b0s">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="41"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <color key="textColor" red="0.26274509800000001" green="0.1215686275" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="443" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk9-dB-y6q">
-                                                <rect key="frame" x="170" y="0.0" width="212" height="41"/>
+                                                <rect key="frame" x="135" y="0.0" width="217" height="41"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-Rp-aOO">
+                                                <rect key="frame" x="362" y="9.5" width="20" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="49s-iw-Of1"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="multiply.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="clearFields:" destination="jgS-t6-dX8" eventType="touchUpInside" id="hP2-qk-PXq"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scZ-JT-wa7">
-                                        <rect key="frame" x="169.5" y="-39" width="75" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="Mkr-Xs-wc9"/>
-                                            <constraint firstAttribute="width" constant="75" id="aJO-tv-LhX"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="unit_converter"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="1QL-0v-qH4"/>
                                     <constraint firstItem="yuB-hI-abH" firstAttribute="leading" secondItem="aY9-34-SYI" secondAttribute="leading" constant="16" id="FYv-gy-CDV"/>
                                     <constraint firstAttribute="trailing" secondItem="yuB-hI-abH" secondAttribute="trailing" constant="16" id="Hv0-W5-Osl"/>
-                                    <constraint firstAttribute="bottom" secondItem="scZ-JT-wa7" secondAttribute="bottom" constant="34" id="qEe-GE-jB6"/>
-                                    <constraint firstItem="scZ-JT-wa7" firstAttribute="centerX" secondItem="aY9-34-SYI" secondAttribute="centerX" id="tsV-bf-tF0"/>
                                     <constraint firstItem="yuB-hI-abH" firstAttribute="centerY" secondItem="aY9-34-SYI" secondAttribute="centerY" id="zkb-wS-yZn"/>
                                 </constraints>
                             </view>
@@ -300,7 +301,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="clearButton:" destination="jgS-t6-dX8" eventType="touchUpInside" id="aQ4-LB-jwx"/>
+                                                            <action selector="deleteButton:" destination="jgS-t6-dX8" eventType="touchUpInside" id="LvH-TS-CSt"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -316,12 +317,26 @@
                                     <constraint firstItem="UdD-lS-B5T" firstAttribute="top" secondItem="gZB-i1-2mZ" secondAttribute="top" constant="16" id="uBi-PW-yGA"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-dq-7dd">
+                                <rect key="frame" x="182" y="205.5" width="50" height="40.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Qil-it-d7U"/>
+                                    <constraint firstAttribute="height" constant="44" id="kzD-tY-dMB"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrow.swap" catalog="system"/>
+                                <connections>
+                                    <action selector="switchFormulaButtonPressed:" destination="jgS-t6-dX8" eventType="touchUpInside" id="S4r-5I-XLr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aY9-34-SYI" firstAttribute="trailing" secondItem="OpM-U1-T9N" secondAttribute="trailing" id="46j-WK-eRC"/>
                             <constraint firstItem="3zs-kt-fZo" firstAttribute="leading" secondItem="OpM-U1-T9N" secondAttribute="leading" id="5o7-Zo-xgJ"/>
                             <constraint firstItem="gZB-i1-2mZ" firstAttribute="top" secondItem="aY9-34-SYI" secondAttribute="bottom" constant="1" id="BzV-ca-TlU"/>
                             <constraint firstAttribute="bottom" secondItem="vww-n1-t13" secondAttribute="bottom" id="GaS-kM-L0V"/>
+                            <constraint firstItem="Bzf-dq-7dd" firstAttribute="top" secondItem="3zs-kt-fZo" secondAttribute="bottom" constant="25" id="GtI-yW-0gA"/>
                             <constraint firstItem="qMK-Ua-0Sz" firstAttribute="leading" secondItem="OpM-U1-T9N" secondAttribute="leading" constant="20" id="Ju5-r3-fN2"/>
                             <constraint firstItem="aY9-34-SYI" firstAttribute="leading" secondItem="OpM-U1-T9N" secondAttribute="leading" id="Krf-kP-jle"/>
                             <constraint firstItem="vww-n1-t13" firstAttribute="leading" secondItem="OpM-U1-T9N" secondAttribute="leading" id="NlP-GC-p06"/>
@@ -329,6 +344,7 @@
                             <constraint firstItem="aY9-34-SYI" firstAttribute="top" secondItem="3zs-kt-fZo" secondAttribute="bottom" constant="70" id="Tu8-PZ-ivN"/>
                             <constraint firstItem="OpM-U1-T9N" firstAttribute="trailing" secondItem="vww-n1-t13" secondAttribute="trailing" id="Zw2-LW-KLM"/>
                             <constraint firstItem="gZB-i1-2mZ" firstAttribute="leading" secondItem="OpM-U1-T9N" secondAttribute="leading" id="dUd-ch-NVW"/>
+                            <constraint firstItem="Bzf-dq-7dd" firstAttribute="centerX" secondItem="LZe-rr-yNN" secondAttribute="centerX" id="e1j-qe-IN0"/>
                             <constraint firstAttribute="bottom" secondItem="gZB-i1-2mZ" secondAttribute="bottom" id="gmX-Km-Cga"/>
                             <constraint firstItem="3zs-kt-fZo" firstAttribute="top" secondItem="OpM-U1-T9N" secondAttribute="top" constant="60" id="oRI-Sd-HIA"/>
                             <constraint firstItem="vww-n1-t13" firstAttribute="top" secondItem="LZe-rr-yNN" secondAttribute="top" id="q9D-1f-Ab6"/>
@@ -343,6 +359,7 @@
                         <outlet property="distanceButton" destination="u1l-f4-VlC" id="r67-Ht-AGc"/>
                         <outlet property="length2Button" destination="JkO-g0-dSj" id="pXj-dK-5yM"/>
                         <outlet property="lengthButton" destination="GbM-bk-nyZ" id="hzf-LV-zum"/>
+                        <outlet property="switchFormulaButton" destination="Bzf-dq-7dd" id="wWc-lB-Jyl"/>
                         <outlet property="temperatureButton" destination="x2R-rR-Dp8" id="oAS-9E-uMi"/>
                         <outlet property="topLabel" destination="dEP-qH-4QD" id="6Sp-DG-S7D"/>
                         <outlet property="topValueLabel" destination="duy-M3-Rpw" id="IcF-Ei-V7P"/>
@@ -352,13 +369,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rA-fy-YdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="183"/>
+            <point key="canvasLocation" x="2828.985507246377" y="182.8125"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Wallpaper 4" width="1080" height="2340"/>
+        <image name="Wallpaper 43" width="1080" height="2340"/>
+        <image name="arrow.swap" catalog="system" width="128" height="100"/>
         <image name="delete.left.fill" catalog="system" width="128" height="104"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="unit_converter" width="512" height="512"/>
+        <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

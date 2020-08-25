@@ -22,7 +22,7 @@ struct Calculator {
     
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    func calculateEquationForBottomField(for type: OperationType,value topValue: Double ) -> Double {
+    func calculateImperialToMetric(for type: OperationType,value topValue: Double ) -> Double {
     switch type {
     case .distance:
         return 1.609 * topValue
@@ -40,7 +40,7 @@ struct Calculator {
 }
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    func calculateEquationForTopField(for type: OperationType,value bottonValue: Double ) -> Double {
+    func calculateMetricToImperial(for type: OperationType,value bottonValue: Double ) -> Double {
     switch type {
     case .distance:
         return 0.621 * bottonValue
