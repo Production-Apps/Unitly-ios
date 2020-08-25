@@ -12,8 +12,6 @@ import FontAwesome_swift
 
 class ViewController: UIViewController {
     
-
-    
     //MARK: - Outlets
     @IBOutlet weak var distanceButton: UIButton!
     @IBOutlet weak var temperatureButton: UIButton!
@@ -29,8 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottonLabel: UILabel!
     
-    @IBOutlet weak var switchFormulaButton: UIButton!
-    
+
     //MARK: - Properties
     private var calculator = Calculator()
     
@@ -101,13 +98,9 @@ class ViewController: UIViewController {
         setLabelName()
     }
     
-    
     //MARK: - Setup UI
     
     private func prepareToolBar() {
-        
-        switchFormulaButton.layer.cornerRadius = 10
-       
         let distImg = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
         distanceButton.setImage( distImg, for: .normal)
         
@@ -136,6 +129,7 @@ class ViewController: UIViewController {
         currentSelection = OperationType.init(rawValue: String(tag))!
         
         setLabelName()
+        
         //Change the color to blue if selected else to gray
         for button in buttonsArray{
             if button?.tag == tag {
@@ -148,10 +142,7 @@ class ViewController: UIViewController {
     
     //Change the Label base on current selection
     private func setLabelName()  {
-        
-        //Clear textField every time user change selection
         clearValueField()
-
         //Change placeholder
         switch currentSelection {
         case .temperature:
@@ -188,7 +179,6 @@ class ViewController: UIViewController {
         bottomValueLabel.text = "0"
         topValueLabel.text = "0"
     }
-    
     
     //MARK: - General private methods
     
