@@ -188,58 +188,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func doneButtonAction(){
-        topValueLabel.endEditing(true)
-        bottomValueLabel.endEditing(true)
-        getResult()
-    }
-    
-}
-
-//MARK: - UITextFieldDelegate
-
-extension ViewController: UITextFieldDelegate{
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        //Clear fields when the user try to enter a new value to start over
-        deleteLastNum()
-        
-        return true
-    }
-    
-    //In case an ipad user press return button
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //Dismiss keyboard after user click return
-        doneButtonAction()
-        return true
-    }
-
-    //Prevent user from adding more than one decimal point and 2 decimal places
-     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-         if let value = textField.text  {
-             // Allow to remove character (Backspace)
-             if string == "" {
-                 return true
-             }
-
-              //Prevent user from adding more than one decimal point
-             if value.contains(".") && string == "."{
-                 return false
-             }
-              //Prevent user from adding more than 2 decimal places
-             if value.contains("."){
-                 let limitDecimalPlace = 2
-                 let decimalPlace = value.components(separatedBy: ".").last
-                 if decimalPlace!.count < limitDecimalPlace {
-                     return true
-                 }else{
-                     return false
-                 }
-             }
-         }
-         return true
-     }
-    
 }
 
 //MARK: - StringProtocol
