@@ -15,16 +15,16 @@ class ViewController: UIViewController {
 
     
     //MARK: - Outlets
-    @IBOutlet weak var distanceButton: UIBarButtonItem!
-    @IBOutlet weak var temperatureButton: UIBarButtonItem!
-    @IBOutlet weak var lengthButton: UIBarButtonItem!
-    @IBOutlet weak var volumenButton: UIBarButtonItem!
-    @IBOutlet weak var weightButton: UIBarButtonItem!
-    @IBOutlet weak var length2Button: UIBarButtonItem!
-    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var distanceButton: UIButton!
+    @IBOutlet weak var temperatureButton: UIButton!
+    @IBOutlet weak var lengthButton: UIButton!
+    @IBOutlet weak var volumenButton: UIButton!
+    @IBOutlet weak var weightButton: UIButton!
+    @IBOutlet weak var length2Button: UIButton!
+    //@IBOutlet weak var clearButton: UIButton!
     
-    @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topValueLabel: UILabel!
+    @IBOutlet weak var bottomValueLabel: UILabel!
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottonLabel: UILabel!
@@ -32,173 +32,101 @@ class ViewController: UIViewController {
     
     //MARK: - Properties
     private var calculator = Calculator()
+    
     private var currentSelection: OperationType = .distance
     
     private var topDisplayValue: Double {
         get{
-            guard let dVal = Double(topTextField.text!) else { return 0.0 }
+            guard let dVal = Double(topValueLabel.text!) else { return 0.0 }
             return dVal
         }
         
         set{
-            topTextField.text = String(format: "%.2f", newValue)
+            topValueLabel.text = String(format: "%.2f", newValue)
         }
     }
     
     private var bottomDisplayValue: Double {
         get{
-            guard let dVal = Double(bottomTextField.text!) else { return 0.0 }
+            guard let dVal = Double(bottomValueLabel.text!) else { return 0.0 }
             return dVal
         }
         
         set{
-            bottomTextField.text = String(format: "%.2f", newValue)
+            bottomValueLabel.text = String(format: "%.2f", newValue)
         }
     }
-    
     
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        
         prepareToolBar()
      
         //Selected distanceButton as default when view loads
-        setActiveButton(selectedButton: distanceButton)
-        
-        prepareLabelRadius()
-        
-        prepareTextFields()
-        
-        addDoneButtonOnKeyboard()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        setActiveButton(distanceButton)
         
     }
     
     //MARK: - IBActions
     
-    @IBAction func toolbarButtonPressed(_ sender: UIBarButtonItem) {
-           setActiveButton(selectedButton: sender)
+    @IBAction func numberButtonPressed(_ sender: UIButton) {
+        if bottomValueLabel.text == "0"{
+            bottomValueLabel.text = ""
+            bottomValueLabel.text! += (sender.titleLabel?.text)!
+        }else{
+            bottomValueLabel.text! += (sender.titleLabel?.text)!
+        }
+        
+    }
+    
+    @IBAction func calcTypeButtonPressed(_ sender: UIButton) {
+        setActiveButton(sender)
        }
     
     @IBAction func clearButton(_ sender: UIButton) {
-        clearTextField()
+        deleteLastNum()
     }
     
     
     //MARK: - Setup UI
     
-    //Cleanup keyboard events
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    //Use to adjust view when keyboard appears
-    @objc func keyboardWillChange(notification: Notification) {
-        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) else {
-            return
-        }
-        
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-            notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            //Substract so as not to move the entire view
-            let percent = keyboardRect.cgRectValue.height * 0.30
-            view.frame.origin.y = -percent
-        }else{
-            view.frame.origin.y = 0
-        }
-    }
-    
-    private func addDoneButtonOnKeyboard() {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle = UIBarStyle.default
-       
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        
-        
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonAction))
-       
-       var items = [UIBarButtonItem]()
-       items.append(flexSpace)
-       items.append(done)
-       
-       doneToolbar.items = items
-       doneToolbar.sizeToFit()
-       
-       self.topTextField.inputAccessoryView = doneToolbar
-        self.bottomTextField.inputAccessoryView = doneToolbar
-       
-     }
-    
     private func prepareToolBar() {
+       
+        let distImg = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        distanceButton.setImage( distImg, for: .normal)
         
-        distanceButton.image = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
+        let tempImg = UIImage.fontAwesomeIcon(name: .thermometerHalf , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        temperatureButton.setImage(tempImg, for: .normal)
         
-        temperatureButton.image = UIImage.fontAwesomeIcon(name: .thermometerHalf , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
+        let  lengthImg = UIImage.fontAwesomeIcon(name: .ruler , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        lengthButton.setImage(lengthImg, for: .normal)
         
-        lengthButton.image = UIImage.fontAwesomeIcon(name: .ruler , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
+        let volumenImg = UIImage.fontAwesomeIcon(name: .tint , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        volumenButton.setImage(volumenImg, for: .normal)
         
-        volumenButton.image = UIImage.fontAwesomeIcon(name: .tint , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
+        let weightImg = UIImage.fontAwesomeIcon(name: .balanceScaleRight , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        weightButton.setImage(weightImg, for: .normal)
         
-        weightButton.image = UIImage.fontAwesomeIcon(name: .balanceScaleRight , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
-        
-        length2Button.image = UIImage.fontAwesomeIcon(name: .rulerVertical , style: .solid, textColor: UIColor.blue, size: CGSize(width: 30, height: 30))
-        
-        clearButton.layer.cornerRadius = 10
+        let length2Img = UIImage.fontAwesomeIcon(name: .rulerVertical , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        length2Button.setImage(length2Img, for: .normal)
     }
     
-    private func prepareLabelRadius(){
-        
-        topLabel.clipsToBounds = true
-        topLabel.layer.cornerRadius = 5
-        topLabel.layer.maskedCorners =  [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-        
-        topTextField.clipsToBounds = true
-        topTextField.layer.cornerRadius = 5
-        topTextField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        
-        bottomTextField.clipsToBounds = true
-        bottomTextField.layer.cornerRadius = 5
-        bottomTextField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        
-        bottonLabel.clipsToBounds = true
-        bottonLabel.layer.cornerRadius = 5
-        bottonLabel.layer.maskedCorners =  [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-    }
-    
-    private func prepareTextFields() {
-        //Add padding to the left of the textfield
-        let tpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.topTextField.frame.height))
-        topTextField.leftView = tpaddingView
-        topTextField.leftViewMode = UITextField.ViewMode.always
-        let bpaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.bottomTextField.frame.height))
-        bottomTextField.leftView = bpaddingView
-        bottomTextField.leftViewMode = UITextField.ViewMode.always
-    }
-    
-    private func setActiveButton(selectedButton: UIBarButtonItem){
-        guard let selectedButton = selectedButton.title else { return }
-    
-        currentSelection(OperationType(rawValue: selectedButton) ?? .distance )
-        
+    private func setActiveButton(_ selectedButton: UIButton){
         //Array of button IBOutlets
         let buttonsArray = [distanceButton,temperatureButton,lengthButton, volumenButton, weightButton, length2Button ]
         
+        let tag  = selectedButton.tag
+        
+        currentSelection(OperationType.init(rawValue: String(tag)) ?? .distance)
+        
         //Change the color to blue if selected else to gray
         for button in buttonsArray{
-            if button?.title == selectedButton{
+            if button?.tag == tag {
                 button?.tintColor = UIColor.systemBlue
             }else{
-                button?.tintColor = UIColor.systemGray
+                button?.tintColor = UIColor.white
             }
         }
     }
@@ -207,7 +135,7 @@ class ViewController: UIViewController {
     private func currentSelection(_ selectedButton: OperationType)  {
         
         //Clear textField every time user change selection
-        clearTextField()
+        clearValueField()
         //set the currently selected button to also use it in textFieldDidEndEditing
         currentSelection = selectedButton
         //Change placeholder
@@ -235,11 +163,16 @@ class ViewController: UIViewController {
     }
     
     //Clear fields
-    private func clearTextField() {
-        topTextField.placeholder =  ""
-        topTextField.text = ""
-        bottomTextField.text = ""
-        bottomTextField.placeholder =  ""
+    private func deleteLastNum() {
+        let _ = bottomValueLabel.text?.popLast()
+        if bottomValueLabel.text == "" {
+            bottomValueLabel.text = "0"
+        }
+    }
+    
+    private func clearValueField() {
+        bottomValueLabel.text = "0"
+        topValueLabel.text = "0"
     }
     
     
@@ -256,13 +189,12 @@ class ViewController: UIViewController {
     }
     
     @objc func doneButtonAction(){
-        topTextField.endEditing(true)
-        bottomTextField.endEditing(true)
+        topValueLabel.endEditing(true)
+        bottomValueLabel.endEditing(true)
         getResult()
     }
     
 }
-
 
 //MARK: - UITextFieldDelegate
 
@@ -270,7 +202,7 @@ extension ViewController: UITextFieldDelegate{
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         //Clear fields when the user try to enter a new value to start over
-        clearTextField()
+        deleteLastNum()
         
         return true
     }

@@ -10,12 +10,12 @@ import Foundation
 
 
 enum OperationType: String {
-    case distance
-    case temperature
-    case length
-    case volume
-    case weight
-    case length2
+    case distance = "1"
+    case temperature = "2"
+    case length = "3"
+    case volume = "4"
+    case weight = "5"
+    case length2 = "6"
 }
 
 struct Calculator {
