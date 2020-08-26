@@ -200,7 +200,9 @@ class ViewController: UIViewController {
             tempInputValue = value
             isFinishTyping = false
         }else{
+            numberFormatter.alwaysShowsDecimalSeparator = false
             if value == "."{
+                numberFormatter.alwaysShowsDecimalSeparator = true
                 if containsDecimal {
                     return //Return to preven adding another decimal point
                 }
@@ -229,10 +231,12 @@ class ViewController: UIViewController {
     
 }
 
+    let numberFormatter = NumberFormatter()
+
 extension Double {
     func withCommas() -> String {
-        let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        numberFormatter.decimalSeparator = "."
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.groupingSeparator = ","
         return numberFormatter.string(from: NSNumber(value:self))!
