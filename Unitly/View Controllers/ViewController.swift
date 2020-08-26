@@ -21,11 +21,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var length2Button: UIButton!
     //@IBOutlet weak var clearButton: UIButton!
     
-    @IBOutlet weak var topValueLabel: UILabel!
-    @IBOutlet weak var bottomValueLabel: UILabel!
+    @IBOutlet weak var resultValueLabel: UILabel!
+    @IBOutlet weak var inputValueLabel: UILabel!
     
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottonLabel: UILabel!
+    @IBOutlet weak var resultTypeLabel: UILabel!
+    @IBOutlet weak var inputTypeLabel: UILabel!
     
 
     //MARK: - Properties
@@ -33,31 +33,37 @@ class ViewController: UIViewController {
     
     private var currentSelection: OperationType = .distance
     
-    private var topDisplayValue: Double {
+    private var resultDisplayValue: Double {
         get{
-            guard let dVal = Double(topValueLabel.text!) else { return 0.0 }
+            guard let dVal = Double(resultValueLabel.text!) else { return 0.0 }
             return dVal
         }
         
         set{
-            topValueLabel.text = String(format: "%.2f", newValue)
+            resultValueLabel.text = newValue.withCommas()
         }
     }
     
-    private var bottomDisplayValue: Double {
+    private var inputDisplayValue: Double {
         get{
-            guard let dVal = Double(bottomValueLabel.text!) else { return 0.0 }
+            
+            let cleanVal = inputValueLabel.text!.replacingOccurrences(of: ",", with: "")
+            
+            guard let dVal = Double(cleanVal) else { return 0.0 }
+            
             return dVal
         }
         
         set{
-            bottomValueLabel.text = String(format: "%.2f", newValue)
+            inputValueLabel.text = newValue.withCommas()
         }
     }
     
     private var isMetricEnable: Bool = true
     
     private var isFinishTyping: Bool = true
+    
+    private var tempInputValue: String = ""
     
     //MARK: - View lifecycle
     
@@ -74,28 +80,9 @@ class ViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        if let numVal = sender.titleLabel {
-            
-            if isFinishTyping {
-                bottomValueLabel.text = numVal.text
-                isFinishTyping = false
-            }else{
-                
-                if numVal.text == "."{
-                    let isInt = floor(bottomDisplayValue) == bottomDisplayValue
-                    let isAlreadyDouble = bottomValueLabel.text?.contains(".")
-                    
-                    if !isInt || isAlreadyDouble! {
-                        return //Return to preven adding another decimal point
-                    }
-                }
-                
-                bottomValueLabel.text! += numVal.text!
-            }
-            
+        if let numVal = sender.titleLabel, let value = numVal.text {
+            processInput(for: value)
         }
-        
-        getResult()
     }
     
     @IBAction func calcTypeButtonPressed(_ sender: UIButton) {
@@ -163,51 +150,91 @@ class ViewController: UIViewController {
         //Change placeholder
         switch currentSelection {
         case .temperature:
-            topLabel.text = isMetricEnable ? "°F" : "°C"
-            bottonLabel.text = isMetricEnable ? "°C" : "°F"
+            resultTypeLabel.text = isMetricEnable ? "°F" : "°C"
+            inputTypeLabel.text = isMetricEnable ? "°C" : "°F"
         case .length :
-            topLabel.text = isMetricEnable ? "Foot" : "Metre"
-            bottonLabel.text = isMetricEnable ? "Metre" :  "Foot"
+            resultTypeLabel.text = isMetricEnable ? "Foot" : "Metre"
+            inputTypeLabel.text = isMetricEnable ? "Metre" :  "Foot"
         case .length2:
-            topLabel.text = isMetricEnable ? "Inch" : "cm"
-            bottonLabel.text = isMetricEnable ? "cm" : "Inch"
+            resultTypeLabel.text = isMetricEnable ? "Inch" : "cm"
+            inputTypeLabel.text = isMetricEnable ? "cm" : "Inch"
         case .volume :
-            topLabel.text = isMetricEnable ? "Gallon" : "Litre"
-            bottonLabel.text = isMetricEnable ? "Litre" : "Gallon"
+            resultTypeLabel.text = isMetricEnable ? "Gallon" : "Litre"
+            inputTypeLabel.text = isMetricEnable ? "Litre" : "Gallon"
         case .weight :
-            topLabel.text = isMetricEnable ? "Lb" : "Kg"
-            bottonLabel.text = isMetricEnable ? "Kg" : "Lb"
+            resultTypeLabel.text = isMetricEnable ? "Lb" : "Kg"
+            inputTypeLabel.text = isMetricEnable ? "Kg" : "Lb"
         default:
-            topLabel.text = isMetricEnable ? "Miles" : "Km"
-            bottonLabel.text = isMetricEnable ? "Km" : "Miles"
+            resultTypeLabel.text = isMetricEnable ? "Miles" : "Km"
+            inputTypeLabel.text = isMetricEnable ? "Km" : "Miles"
         }
     }
     
     //Clear fields
     private func deleteLastNum() {
-        let _ = bottomValueLabel.text?.popLast()
-        if bottomValueLabel.text == "" {
-            bottomValueLabel.text = "0"
+        let _ = inputValueLabel.text?.popLast()
+        if inputValueLabel.text == "" {
+            inputValueLabel.text = "0"
             isFinishTyping = true
         }
          getResult()
     }
     
     private func clearValueField() {
-        bottomValueLabel.text = "0"
-        topValueLabel.text = "0"
+        inputValueLabel.text = "0"
+        resultValueLabel.text = "0"
         isFinishTyping = true
     }
     
     //MARK: - General private methods
     
-    private func getResult() {
-        //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        if isMetricEnable {
-            topDisplayValue = calculator.calculateMetricToImperial(for: currentSelection, value: bottomDisplayValue)
+    private func processInput(for value: String) {
+        
+        //guard let totalVal = inputValueLabel.text else { return }
+        
+        let maxCharReached = tempInputValue.count >= 11
+        let containsDecimal = tempInputValue.contains(".")
+        
+        //Append and sanitze value to prevent multiple decimal points
+        if isFinishTyping {
+            tempInputValue = value
+            isFinishTyping = false
         }else{
-            topDisplayValue = calculator.calculateImperialToMetric(for: currentSelection, value: bottomDisplayValue)
+            if value == "."{
+                if containsDecimal {
+                    return //Return to preven adding another decimal point
+                }
+            }
+            
+            if maxCharReached {
+                return
+            }
+            //Append if above conditions pass
+            tempInputValue += value
+        }
+        if let doubleValue = Double(tempInputValue) {
+            inputDisplayValue = doubleValue
+            getResult()
         }
     }
     
+    private func getResult() {
+        //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
+        if isMetricEnable {
+            resultDisplayValue = calculator.calculateMetricToImperial(for: currentSelection, value: inputDisplayValue)
+        }else{
+            resultDisplayValue = calculator.calculateImperialToMetric(for: currentSelection, value: inputDisplayValue)
+        }
+    }
+    
+}
+
+extension Double {
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.groupingSeparator = ","
+        return numberFormatter.string(from: NSNumber(value:self))!
+    }
 }

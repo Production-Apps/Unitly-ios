@@ -39,7 +39,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duy-M3-Rpw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="duy-M3-Rpw">
                                                 <rect key="frame" x="137" y="38.5" width="108" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,17 +58,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY9-34-SYI" userLabel="LowerView">
                                 <rect key="frame" x="0.0" y="259" width="414" height="75"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-hI-abH">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-hI-abH">
                                         <rect key="frame" x="16" y="17" width="382" height="41"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-yU-b0s">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-yU-b0s">
+                                                <rect key="frame" x="0.0" y="0.0" width="164.5" height="41"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="443" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk9-dB-y6q">
-                                                <rect key="frame" x="135" y="0.0" width="212" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="443" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="xk9-dB-y6q">
+                                                <rect key="frame" x="174.5" y="0.0" width="172.5" height="41"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -376,14 +376,14 @@
                         <viewLayoutGuide key="safeArea" id="OpM-U1-T9N"/>
                     </view>
                     <connections>
-                        <outlet property="bottomValueLabel" destination="xk9-dB-y6q" id="SPx-mo-daC"/>
-                        <outlet property="bottonLabel" destination="YJq-yU-b0s" id="xtZ-cC-6YA"/>
                         <outlet property="distanceButton" destination="u1l-f4-VlC" id="r67-Ht-AGc"/>
+                        <outlet property="inputTypeLabel" destination="YJq-yU-b0s" id="xtZ-cC-6YA"/>
+                        <outlet property="inputValueLabel" destination="xk9-dB-y6q" id="SPx-mo-daC"/>
                         <outlet property="length2Button" destination="JkO-g0-dSj" id="pXj-dK-5yM"/>
                         <outlet property="lengthButton" destination="GbM-bk-nyZ" id="hzf-LV-zum"/>
+                        <outlet property="resultTypeLabel" destination="dEP-qH-4QD" id="6Sp-DG-S7D"/>
+                        <outlet property="resultValueLabel" destination="duy-M3-Rpw" id="IcF-Ei-V7P"/>
                         <outlet property="temperatureButton" destination="x2R-rR-Dp8" id="oAS-9E-uMi"/>
-                        <outlet property="topLabel" destination="dEP-qH-4QD" id="6Sp-DG-S7D"/>
-                        <outlet property="topValueLabel" destination="duy-M3-Rpw" id="IcF-Ei-V7P"/>
                         <outlet property="volumenButton" destination="r24-Zr-kCE" id="vcT-67-AXm"/>
                         <outlet property="weightButton" destination="vZB-ec-TOD" id="ZoB-Bt-6QK"/>
                     </connections>
