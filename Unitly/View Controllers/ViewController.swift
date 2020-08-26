@@ -57,6 +57,8 @@ class ViewController: UIViewController {
     
     private var isMetricEnable: Bool = true
     
+    private var isFinishTyping: Bool = true
+    
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -72,12 +74,27 @@ class ViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        if bottomValueLabel.text == "0"{
-            bottomValueLabel.text = ""
-            bottomValueLabel.text! += (sender.titleLabel?.text)!
-        }else{
-            bottomValueLabel.text! += (sender.titleLabel?.text)!
+        if let numVal = sender.titleLabel {
+            
+            if isFinishTyping {
+                bottomValueLabel.text = numVal.text
+                isFinishTyping = false
+            }else{
+                
+                if numVal.text == "."{
+                    let isInt = floor(bottomDisplayValue) == bottomDisplayValue
+                    let isAlreadyDouble = bottomValueLabel.text?.contains(".")
+                    
+                    if !isInt || isAlreadyDouble! {
+                        return //Return to preven adding another decimal point
+                    }
+                }
+                
+                bottomValueLabel.text! += numVal.text!
+            }
+            
         }
+        
         getResult()
     }
     
@@ -171,6 +188,7 @@ class ViewController: UIViewController {
         let _ = bottomValueLabel.text?.popLast()
         if bottomValueLabel.text == "" {
             bottomValueLabel.text = "0"
+            isFinishTyping = true
         }
          getResult()
     }
@@ -178,6 +196,7 @@ class ViewController: UIViewController {
     private func clearValueField() {
         bottomValueLabel.text = "0"
         topValueLabel.text = "0"
+        isFinishTyping = true
     }
     
     //MARK: - General private methods
@@ -192,11 +211,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-//MARK: - StringProtocol
-
-//Use to check if String is a valid double in case use enter a letter in the textField it return nil
-extension StringProtocol {
-    var double: Double? {Double(self)}
-}
-
