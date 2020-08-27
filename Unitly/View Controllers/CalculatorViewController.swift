@@ -99,17 +99,19 @@ class CalculatorViewController: UIViewController {
         setLabelName()
     }
     
-    //Menu section
+    //Menu section -- Menu View is hidden behind CalcView it can be drag under to edit
     @IBAction func toggleMenu(_ sender: UIButton) {
         animateMenu()
     }
     
     @IBAction func feedbackButtonPressed(_ sender: UIButton) {
-        //show popup to present +/- choice then redirect to email for negative or to appstore feedback for positive
+        showFeedbackAlert()
     }
     
     @IBAction func aboutUsButtonPressed(_ sender: UIButton) {
         //Direct to website
+        guard let url = URL(string: "https://fritzgt.com") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     //MARK: - Setup UI
@@ -149,6 +151,29 @@ class CalculatorViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    private func showFeedbackAlert() {
+        //show popup to present +/- choice then redirect to email for negative or to appstore feedback for positive
+        let alert = UIAlertController(title: "Feedback", message: "Please select", preferredStyle: .actionSheet)
+        
+        let positiveFeedback = UIAlertAction(title: "👍 Love it!", style: .default) { (_) in
+            guard let url = URL(string: "https://itunes.apple.com/app/id1501719971") else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+        let negativeFeedback = UIAlertAction(title: "👎 Problems?", style: .default) { (_) in
+            guard let url = URL(string: "mailto:contact@fritzgt.com") else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(positiveFeedback)
+        alert.addAction(negativeFeedback)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func setActiveButton(_ selectedButton: UIButton){
