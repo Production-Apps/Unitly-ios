@@ -10,7 +10,7 @@ import UIKit
 import FontAwesome_swift
 
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var distanceButton: UIButton!
@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var volumenButton: UIButton!
     @IBOutlet weak var weightButton: UIButton!
     @IBOutlet weak var length2Button: UIButton!
-    //@IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet weak var resultValueLabel: UILabel!
     @IBOutlet weak var inputValueLabel: UILabel!
@@ -29,10 +28,11 @@ class ViewController: UIViewController {
     
 
     //MARK: - Properties
+    private var menuController: UIViewController!
+    private var isExpanded: Bool = false
     private var calculator = Calculator()
     
     private var currentSelection: OperationType = .distance
-    
     private var resultDisplayValue: Double {
         get{
             guard let dVal = Double(resultValueLabel.text!) else { return 0.0 }
@@ -43,7 +43,6 @@ class ViewController: UIViewController {
             resultValueLabel.text = newValue.withCommas()
         }
     }
-    
     private var inputDisplayValue: Double {
         get{
             
@@ -58,18 +57,14 @@ class ViewController: UIViewController {
             inputValueLabel.text = newValue.withCommas()
         }
     }
-    
     private var isMetricEnable: Bool = true
-    
     private var isFinishTyping: Bool = true
-    
     private var tempInputValue: String = ""
     
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         prepareToolBar()
      
         //Selected distanceButton as default when view loads
@@ -102,8 +97,47 @@ class ViewController: UIViewController {
         setLabelName()
     }
     
-    //MARK: - Setup UI
+    @IBAction func menuButtonPressed(_ sender: UIButton) {
+        
+        
+        if !isExpanded{
+            configureMenuController()
+        }
+        
+        isExpanded.toggle()
+        
+        showMenuConteoller(shouldExpand: isExpanded)
+    }
     
+    
+    //MARK: - Setup Menu
+    
+    private func configureMenuController() {
+        if menuController == nil{
+            menuController = MenuViewController()
+            view.insertSubview(menuController.view, at: 0)
+            addChild(menuController)
+            menuController.didMove(toParent: self)
+        }
+    }
+    
+    func showMenuConteoller(shouldExpand: Bool) {
+        if shouldExpand{
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                
+                self.view.frame.origin.x = self.view.frame.width - 80
+                
+            }, completion: nil)
+        }else{
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                
+                self.view.frame.origin.x = 0
+                
+            }, completion: nil)
+        }
+    }
+    
+    //MARK: - Setup UI
     private func prepareToolBar() {
         let distImg = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
         distanceButton.setImage( distImg, for: .normal)
@@ -144,7 +178,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //Change the Label base on current selection
+    //Change the Labels base on current selection
     private func setLabelName()  {
         clearValueField()
         //Change placeholder
@@ -170,6 +204,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: - General private Methods
+    
     //Clear fields
     private func deleteLastNum() {
         let _ = inputValueLabel.text?.popLast()
@@ -186,8 +222,6 @@ class ViewController: UIViewController {
         isFinishTyping = true
     }
     
-    //MARK: - General private methods
-    
     private func processInput(for value: String) {
         
         //guard let totalVal = inputValueLabel.text else { return }
@@ -202,6 +236,7 @@ class ViewController: UIViewController {
         }else{
             numberFormatter.alwaysShowsDecimalSeparator = false
             if value == "."{
+                //Setup here to prevent issue where display it wont show dot till the next digit is type
                 numberFormatter.alwaysShowsDecimalSeparator = true
                 if containsDecimal {
                     return //Return to preven adding another decimal point
@@ -231,7 +266,10 @@ class ViewController: UIViewController {
     
 }
 
-    let numberFormatter = NumberFormatter()
+    //MARK: - Double extension
+
+//Use here to enable alwaysShowsDecimalSeparator inside processInput
+let numberFormatter = NumberFormatter()
 
 extension Double {
     func withCommas() -> String {

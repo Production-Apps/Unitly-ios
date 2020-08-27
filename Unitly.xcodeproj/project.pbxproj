@@ -11,11 +11,13 @@
 		04679FDD24372F6800EFAD02 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04679FDC24372F6800EFAD02 /* CalculatorTests.swift */; };
 		0471F7D323FFA557000A464C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D223FFA557000A464C /* AppDelegate.swift */; };
 		0471F7D523FFA557000A464C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D423FFA557000A464C /* SceneDelegate.swift */; };
-		0471F7D723FFA557000A464C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D623FFA557000A464C /* ViewController.swift */; };
+		0471F7D723FFA557000A464C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7D623FFA557000A464C /* CalculatorViewController.swift */; };
 		0471F7DA23FFA557000A464C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7D823FFA557000A464C /* Main.storyboard */; };
 		0471F7DC23FFA55D000A464C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DB23FFA55D000A464C /* Assets.xcassets */; };
 		0471F7DF23FFA55D000A464C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0471F7DD23FFA55D000A464C /* LaunchScreen.storyboard */; };
 		0471F7E7240171C9000A464C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471F7E6240171C9000A464C /* Calculator.swift */; };
+		04C9660024F79F2A00DAC446 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C965FF24F79F2A00DAC446 /* MenuViewController.swift */; };
+		04F48CE224F7A9A700D65AF2 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F48CE124F7A9A700D65AF2 /* MenuOptionCell.swift */; };
 		1CAE0517C099A12851165F49 /* Pods_Unitly_UnitlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D5616D8958797153F2CAC8 /* Pods_Unitly_UnitlyUITests.framework */; };
 		91E1036B0AA493EB00FE08FE /* Pods_Unitly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C7584D95D111AB6F111C1 /* Pods_Unitly.framework */; };
 		EFFB933EEA0BB6970FC35F5D /* Pods_UnitlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497FC62D58E25D88F99020B9 /* Pods_UnitlyTests.framework */; };
@@ -49,12 +51,14 @@
 		0471F7CF23FFA557000A464C /* Unitly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unitly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0471F7D223FFA557000A464C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0471F7D423FFA557000A464C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0471F7D623FFA557000A464C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0471F7D623FFA557000A464C /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		0471F7D923FFA557000A464C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0471F7DB23FFA55D000A464C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0471F7DE23FFA55D000A464C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0471F7E023FFA55D000A464C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0471F7E6240171C9000A464C /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		04C965FF24F79F2A00DAC446 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		04F48CE124F7A9A700D65AF2 /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
 		0D4E7E22C780A6E6FDB89F3B /* Pods-UnitlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitlyTests.debug.xcconfig"; path = "Target Support Files/Pods-UnitlyTests/Pods-UnitlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.release.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.release.xcconfig"; sourceTree = "<group>"; };
 		3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unitly.debug.xcconfig"; path = "Target Support Files/Pods-Unitly/Pods-Unitly.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +112,8 @@
 		0436A3A92437798A00A8461B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0471F7D623FFA557000A464C /* ViewController.swift */,
+				0471F7D623FFA557000A464C /* CalculatorViewController.swift */,
+				04C965FF24F79F2A00DAC446 /* MenuViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -171,8 +176,17 @@
 				0436A3A92437798A00A8461B /* View Controllers */,
 				0436A3A82437796B00A8461B /* Storyboards */,
 				0436A3AA243779E700A8461B /* Resources */,
+				04F48CE324F7A9AC00D65AF2 /* View */,
 			);
 			path = Unitly;
+			sourceTree = "<group>";
+		};
+		04F48CE324F7A9AC00D65AF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04F48CE124F7A9A700D65AF2 /* MenuOptionCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		251C550F7D765D543616E275 /* Frameworks */ = {
@@ -460,7 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0471F7D723FFA557000A464C /* ViewController.swift in Sources */,
+				0471F7D723FFA557000A464C /* CalculatorViewController.swift in Sources */,
+				04F48CE224F7A9A700D65AF2 /* MenuOptionCell.swift in Sources */,
+				04C9660024F79F2A00DAC446 /* MenuViewController.swift in Sources */,
 				0471F7E7240171C9000A464C /* Calculator.swift in Sources */,
 				0471F7D323FFA557000A464C /* AppDelegate.swift in Sources */,
 				0471F7D523FFA557000A464C /* SceneDelegate.swift in Sources */,

@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="QFg-4A-oY9">
             <objects>
-                <viewController id="jgS-t6-dX8" customClass="ViewController" customModule="Unitly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jgS-t6-dX8" customClass="CalculatorViewController" customModule="Unitly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LZe-rr-yNN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +26,9 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="line.horizontal.3" catalog="system"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="jgS-t6-dX8" eventType="touchUpInside" id="cTv-OR-hCb"/>
+                                </connections>
                             </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-kt-fZo" userLabel="UpperView">
                                 <rect key="frame" x="0.0" y="104" width="414" height="75"/>
@@ -375,6 +378,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OpM-U1-T9N"/>
                     </view>
+                    <navigationItem key="navigationItem" id="N0Z-Yw-rQo"/>
                     <connections>
                         <outlet property="distanceButton" destination="u1l-f4-VlC" id="r67-Ht-AGc"/>
                         <outlet property="inputTypeLabel" destination="YJq-yU-b0s" id="xtZ-cC-6YA"/>
@@ -390,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rA-fy-YdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828.985507246377" y="182.8125"/>
+            <point key="canvasLocation" x="5559.420289855073" y="182.8125"/>
         </scene>
     </scenes>
     <resources>
