@@ -8,7 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
-
+import MessageUI
 
 class CalculatorViewController: UIViewController {
     
@@ -112,6 +112,7 @@ class CalculatorViewController: UIViewController {
         //Direct to website
         guard let url = URL(string: "https://fritzgt.com") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        animateMenu()//Close menu
     }
     
     //MARK: - Setup UI
@@ -155,16 +156,18 @@ class CalculatorViewController: UIViewController {
     
     private func showFeedbackAlert() {
         //show popup to present +/- choice then redirect to email for negative or to appstore feedback for positive
-        let alert = UIAlertController(title: "Feedback", message: "Please select", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Feedback", message: "Please choose type of feedback below:", preferredStyle: .actionSheet)
         
         let positiveFeedback = UIAlertAction(title: "👍 Love it!", style: .default) { (_) in
-            guard let url = URL(string: "https://itunes.apple.com/app/id1501719971") else { return }
+            guard let url = URL(string: "https://apps.apple.com/app/id1501719971?action=write-review") else { return }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            self.animateMenu()//Close menu
         }
         
         let negativeFeedback = UIAlertAction(title: "👎 Problems?", style: .default) { (_) in
             guard let url = URL(string: "mailto:contact@fritzgt.com") else { return }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            self.animateMenu()//Close menu
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
