@@ -26,12 +26,15 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var resultTypeLabel: UILabel!
     @IBOutlet weak var inputTypeLabel: UILabel!
     
+    @IBOutlet weak var trailingCalcView: NSLayoutConstraint!
+    @IBOutlet weak var lealingCalcView: NSLayoutConstraint!
+    
+    @IBOutlet weak var burgerMenu: UIButton!
+    
 
     //MARK: - Properties
-    private var menuController: UIViewController!
-    private var isExpanded: Bool = false
     private var calculator = Calculator()
-    
+    private var isMenuExtended: Bool = false
     private var currentSelection: OperationType = .distance
     private var resultDisplayValue: Double {
         get{
@@ -66,10 +69,9 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareToolBar()
-     
+        
         //Selected distanceButton as default when view loads
         setActiveButton(distanceButton)
-        
     }
     
     //MARK: - IBActions
@@ -97,44 +99,17 @@ class CalculatorViewController: UIViewController {
         setLabelName()
     }
     
-    @IBAction func menuButtonPressed(_ sender: UIButton) {
-        
-        
-        if !isExpanded{
-            configureMenuController()
-        }
-        
-        isExpanded.toggle()
-        
-        showMenuConteoller(shouldExpand: isExpanded)
+    //Menu section
+    @IBAction func toggleMenu(_ sender: UIButton) {
+        animateMenu()
     }
     
-    
-    //MARK: - Setup Menu
-    
-    private func configureMenuController() {
-        if menuController == nil{
-            menuController = MenuViewController()
-            view.insertSubview(menuController.view, at: 0)
-            addChild(menuController)
-            menuController.didMove(toParent: self)
-        }
+    @IBAction func feedbackButtonPressed(_ sender: UIButton) {
+        //show popup to present +/- choice then redirect to email for negative or to appstore feedback for positive
     }
     
-    func showMenuConteoller(shouldExpand: Bool) {
-        if shouldExpand{
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-                
-                self.view.frame.origin.x = self.view.frame.width - 80
-                
-            }, completion: nil)
-        }else{
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-                
-                self.view.frame.origin.x = 0
-                
-            }, completion: nil)
-        }
+    @IBAction func aboutUsButtonPressed(_ sender: UIButton) {
+        //Direct to website
     }
     
     //MARK: - Setup UI
@@ -156,6 +131,24 @@ class CalculatorViewController: UIViewController {
         
         let length2Img = UIImage.fontAwesomeIcon(name: .rulerVertical , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
         length2Button.setImage(length2Img, for: .normal)
+    }
+    
+    private func animateMenu() {
+        if !isMenuExtended {
+            burgerMenu.setBackgroundImage(UIImage(systemName: "xmark"), for: .normal)
+            lealingCalcView.constant = 200
+            trailingCalcView.constant = 200
+            isMenuExtended = true
+        }else{
+            burgerMenu.setBackgroundImage(UIImage(systemName: "line.horizontal.3"), for: .normal)
+            lealingCalcView.constant = 0
+            trailingCalcView.constant = 0
+            isMenuExtended = false
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     private func setActiveButton(_ selectedButton: UIButton){
@@ -226,7 +219,7 @@ class CalculatorViewController: UIViewController {
         
         //guard let totalVal = inputValueLabel.text else { return }
         
-        let maxCharReached = tempInputValue.count >= 11
+        let maxCharReached = inputValueLabel.text!.count >= 11
         let containsDecimal = tempInputValue.contains(".")
         
         //Append and sanitze value to prevent multiple decimal points
