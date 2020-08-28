@@ -101,10 +101,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-iL-bL0">
-                                        <rect key="frame" x="8" y="57" width="40" height="25.5"/>
+                                        <rect key="frame" x="8" y="57" width="35" height="25.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="ihn-aZ-WSG"/>
-                                            <constraint firstAttribute="width" constant="40" id="vBk-9f-Y30"/>
+                                            <constraint firstAttribute="width" constant="35" id="vBk-9f-Y30"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" backgroundImage="line.horizontal.3" catalog="system"/>
