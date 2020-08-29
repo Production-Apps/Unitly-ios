@@ -30,6 +30,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var lealingCalcView: NSLayoutConstraint!
     
     @IBOutlet weak var burgerMenu: UIButton!
+    @IBOutlet weak var swapButton: UIButton!
     
 
     //MARK: - Properties
@@ -117,6 +118,12 @@ class CalculatorViewController: UIViewController {
     
     //MARK: - Setup UI
     private func prepareToolBar() {
+        
+        swapButton.layer.cornerRadius = 21
+        swapButton.imageView?.contentMode = .scaleAspectFit
+        
+        swapButton.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+        
         let distImg = UIImage.fontAwesomeIcon(name: .tachometerAlt , style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
         distanceButton.setImage( distImg, for: .normal)
         
@@ -230,10 +237,12 @@ class CalculatorViewController: UIViewController {
     //Clear fields
     private func deleteLastNum() {
         let _ = inputValueLabel.text?.popLast()
+        tempInputValue = inputValueLabel.text!.replacingOccurrences(of: ",", with: "")
         if inputValueLabel.text == "" {
             inputValueLabel.text = "0"
             isFinishTyping = true
         }
+
          getResult()
     }
     

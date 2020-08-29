@@ -425,14 +425,15 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-rA-rTC">
-                                        <rect key="frame" x="182" y="206.5" width="50" height="40.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="182" y="205" width="50" height="44"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="35O-wa-aGD"/>
                                             <constraint firstAttribute="height" constant="44" id="Dw7-D1-kPT"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="arrow.swap" catalog="system"/>
+                                        <state key="normal" image="arrow.swap" catalog="system"/>
                                         <connections>
                                             <action selector="switchFormulaButtonPressed:" destination="DXH-Sg-SPW" eventType="touchUpInside" id="Yne-No-lpn"/>
                                         </connections>
@@ -484,6 +485,7 @@
                         <outlet property="lengthButton" destination="pS8-CS-cRD" id="OW6-5e-H8f"/>
                         <outlet property="resultTypeLabel" destination="zIp-5u-zr6" id="5sy-Mu-Kzk"/>
                         <outlet property="resultValueLabel" destination="6Nl-Mo-Oxu" id="ZqI-hZ-6bx"/>
+                        <outlet property="swapButton" destination="jaX-rA-rTC" id="JPc-IQ-Bz0"/>
                         <outlet property="temperatureButton" destination="Qji-W8-yfL" id="HIk-1B-MmM"/>
                         <outlet property="trailingCalcView" destination="7bb-UK-HLo" id="IAa-yH-jOt"/>
                         <outlet property="volumenButton" destination="mAw-XP-7wz" id="VLr-2d-jM3"/>
