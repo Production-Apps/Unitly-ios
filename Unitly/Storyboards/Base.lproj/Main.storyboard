@@ -141,7 +141,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp9-me-3In" userLabel="LowerView">
-                                        <rect key="frame" x="0.0" y="257" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="258" width="414" height="75"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-IG-ua7">
                                                 <rect key="frame" x="16" y="17" width="382" height="41"/>
@@ -185,10 +185,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US5-wA-Lod" userLabel="NumbersView">
-                                        <rect key="frame" x="0.0" y="333" width="414" height="563"/>
+                                        <rect key="frame" x="0.0" y="334" width="414" height="562"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6gs-kj-CsS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="543"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5eN-Se-PG2">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="108.5"/>
@@ -300,10 +300,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-KB-YeG">
-                                                        <rect key="frame" x="0.0" y="217" width="414" height="109"/>
+                                                        <rect key="frame" x="0.0" y="217" width="414" height="108"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZo-TX-J1c">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="109"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="108"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
                                                                 <state key="normal" title="4">
@@ -314,7 +314,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpm-Vo-Lwf">
-                                                                <rect key="frame" x="138" y="0.0" width="138" height="109"/>
+                                                                <rect key="frame" x="138" y="0.0" width="138" height="108"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
                                                                 <state key="normal" title="5">
@@ -325,7 +325,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-u7-IfV">
-                                                                <rect key="frame" x="276" y="0.0" width="138" height="109"/>
+                                                                <rect key="frame" x="276" y="0.0" width="138" height="108"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
                                                                 <state key="normal" title="6">
@@ -338,7 +338,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-Nw-yoo">
-                                                        <rect key="frame" x="0.0" y="326" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="325" width="414" height="108.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-DX-I3E">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="108.5"/>
@@ -376,7 +376,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yDc-eE-XA6">
-                                                        <rect key="frame" x="0.0" y="434.5" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="433.5" width="414" height="108.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qd3-cr-rif">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="108.5"/>
@@ -425,15 +425,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-rA-rTC">
-                                        <rect key="frame" x="182" y="205" width="50" height="44"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <rect key="frame" x="182" y="206.5" width="50" height="41.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="35O-wa-aGD"/>
-                                            <constraint firstAttribute="height" constant="44" id="Dw7-D1-kPT"/>
+                                            <constraint firstAttribute="height" constant="45" id="Dw7-D1-kPT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="arrow.swap" catalog="system"/>
+                                        <state key="normal" backgroundImage="arrow.swap" catalog="system"/>
                                         <connections>
                                             <action selector="switchFormulaButtonPressed:" destination="DXH-Sg-SPW" eventType="touchUpInside" id="Yne-No-lpn"/>
                                         </connections>

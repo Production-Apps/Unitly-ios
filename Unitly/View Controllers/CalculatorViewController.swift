@@ -8,7 +8,6 @@
 
 import UIKit
 import FontAwesome_swift
-import MessageUI
 
 class CalculatorViewController: UIViewController {
     
@@ -118,9 +117,6 @@ class CalculatorViewController: UIViewController {
     
     //MARK: - Setup UI
     private func prepareToolBar() {
-        
-        swapButton.layer.cornerRadius = 21
-        swapButton.imageView?.contentMode = .scaleAspectFit
         
         swapButton.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
         
@@ -237,6 +233,7 @@ class CalculatorViewController: UIViewController {
     //Clear fields
     private func deleteLastNum() {
         let _ = inputValueLabel.text?.popLast()
+        //Set the tempInputValue so it matches the currently display value
         tempInputValue = inputValueLabel.text!.replacingOccurrences(of: ",", with: "")
         if inputValueLabel.text == "" {
             inputValueLabel.text = "0"
