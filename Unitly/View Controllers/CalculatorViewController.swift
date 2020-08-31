@@ -34,6 +34,8 @@ class CalculatorViewController: UIViewController {
 
     //MARK: - Properties
     private var calculator = Calculator()
+    private var viewModel = CalculatorViewModel()
+    
     private var isMenuExtended: Bool = false
     private var currentSelection: OperationType = .distance
     private var resultDisplayValue: Double {
@@ -159,21 +161,21 @@ class CalculatorViewController: UIViewController {
     
     private func showFeedbackAlert() {
         //show popup to present +/- choice then redirect to email for negative or to appstore feedback for positive
-        let alert = UIAlertController(title: "Feedback", message: "Please choose type of feedback below:", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: viewModel.alertTitle, message: viewModel.alertMessage, preferredStyle: .actionSheet)
         
-        let positiveFeedback = UIAlertAction(title: "👍 Love it!", style: .default) { (_) in
-            guard let url = URL(string: "https://apps.apple.com/app/id1501719971?action=write-review") else { return }
+        let positiveFeedback = UIAlertAction(title: viewModel.positiveActionTitle, style: .default) { (_) in
+            guard let url = URL(string: self.viewModel.positiveActionURL) else { return }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             self.animateMenu()//Close menu
         }
         
-        let negativeFeedback = UIAlertAction(title: "👎 Problems?", style: .default) { (_) in
-            guard let url = URL(string: "mailto:contact@fritzgt.com") else { return }
+        let negativeFeedback = UIAlertAction(title: viewModel.negativeActionTitle, style: .default) { (_) in
+            guard let url = URL(string: self.viewModel.negativeActionURL) else { return }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             self.animateMenu()//Close menu
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: viewModel.cancelActionTitle, style: .cancel)
         
         alert.addAction(positiveFeedback)
         alert.addAction(negativeFeedback)
