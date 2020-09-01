@@ -41,9 +41,10 @@ class CalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         
         prepareToolBar()
-        viewModel.delegate = self
+        
         inputValueLabel.text = viewModel.inputValue
         resultValueLabel.text = viewModel.resultValue
         
@@ -163,20 +164,21 @@ class CalculatorViewController: UIViewController {
         //Array of button IBOutlets
         let buttonsArray = [distanceButton,temperatureButton,lengthButton, volumenButton, weightButton, length2Button ]
         
-        let tag  = selectedButton.tag
+        let selectedTypeName  = selectedButton.tag
         
-        viewModel.currentSelection = OperationType.init(rawValue: String(tag))!
-        
-        setLabelName()
+        //Pass it to viewModel for use when calculating results
+        viewModel.currentSelection = OperationType.init(rawValue: String(selectedTypeName))!
         
         //Change the color to blue if selected else to gray
         for button in buttonsArray{
-            if button?.tag == tag {
+            if button?.tag == selectedTypeName {
                 button?.tintColor = UIColor.systemBlue
             }else{
                 button?.tintColor = UIColor.white
             }
         }
+        
+        setLabelName()
     }
     
     //Change the Labels base on current selection

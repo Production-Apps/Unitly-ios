@@ -49,7 +49,6 @@ class CalculatorViewModel {
     var inputValue: String = "0"
     var resultValue: String = "0"
     
-    
     var isMetricEnable: Bool = true
     var isFinishTyping: Bool = true
     
@@ -63,7 +62,6 @@ class CalculatorViewModel {
     var negativeActionURL = "mailto:contact@fritzgt.com"
     
     var cancelActionTitle = "Cancel"
-    
     
     //MARK: - Methods
     
