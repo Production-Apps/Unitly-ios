@@ -33,7 +33,6 @@ class CalculatorViewController: UIViewController {
     
 
     //MARK: - Properties
-    private var calculator = Calculator()
     private var viewModel = CalculatorViewModel()
     
     private var isMenuExtended: Bool = false
@@ -56,7 +55,6 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         if let numVal = sender.titleLabel, let value = numVal.text {
-            print(value)
             viewModel.processInput(for: value)
         }
     }
