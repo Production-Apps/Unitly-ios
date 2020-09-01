@@ -116,7 +116,7 @@ class CalculatorViewModel {
         }else{
             numberFormatter.alwaysShowsDecimalSeparator = false
             if value == "."{
-                //Setup here to prevent issue where display it wont show dot till the next digit is type
+                //Setup here to prevent issue where display wont show dot till the next digit is type
                 numberFormatter.alwaysShowsDecimalSeparator = true
                 if containsDecimal {
                     return //Return to preven adding another decimal point
@@ -137,16 +137,9 @@ class CalculatorViewModel {
     
     private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        print(inputDisplayValue)
-        if isMetricEnable {
-            resultDisplayValue = calculatorBrain.calculateMetricToImperial(for: currentSelection, value: inputDisplayValue)
-        }else{
-            resultDisplayValue = calculatorBrain.calculateImperialToMetric(for: currentSelection, value: inputDisplayValue)
-            
-        }
-        print(resultDisplayValue)
-        delegate?.resultDidChanged()
+        resultDisplayValue = calculatorBrain.getResult(value: inputDisplayValue, for: currentSelection, isMetricEnable: isMetricEnable)
         
+        delegate?.resultDidChanged()
     }
     
 }

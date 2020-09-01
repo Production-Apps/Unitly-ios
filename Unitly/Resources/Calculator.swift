@@ -20,8 +20,27 @@ enum OperationType: String {
 
 struct Calculator {
     
-    //Calculates the result from the given value in the top textField to show on the botton textField
-    func calculateImperialToMetric(for type: OperationType,value: Double ) -> Double {
+    //MARK: - Properties
+    
+    private var value : Double = 0.0
+    private var type: OperationType = .distance
+    
+    //MARK: - Methods
+    mutating func getResult(value: Double,for type: OperationType, isMetricEnable: Bool) -> Double {
+        self.value = value
+        self.type = type
+       
+          if isMetricEnable {
+              return calculateMetricToImperial()
+          }else{
+              return calculateImperialToMetric()
+          }
+      }
+    
+    
+    //MARK: - Private methods
+    
+    private func calculateImperialToMetric() -> Double {
         switch type {
         case .distance:
             return 1.609 * value
@@ -39,7 +58,7 @@ struct Calculator {
     }
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    func calculateMetricToImperial(for type: OperationType,value: Double ) -> Double {
+    private func calculateMetricToImperial() -> Double {
         switch type {
         case .distance:
             return 0.621 * value
