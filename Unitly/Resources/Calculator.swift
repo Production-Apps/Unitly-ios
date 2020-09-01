@@ -20,7 +20,6 @@ enum OperationType: String {
 
 struct Calculator {
     
-    
     //Calculates the result from the given value in the top textField to show on the botton textField
     func calculateImperialToMetric(for type: OperationType,value topValue: Double ) -> Double {
         switch type {

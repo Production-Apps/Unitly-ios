@@ -37,40 +37,16 @@ class CalculatorViewController: UIViewController {
     private var viewModel = CalculatorViewModel()
     
     private var isMenuExtended: Bool = false
-    private var currentSelection: OperationType = .distance
-    private var resultDisplayValue: Double {
-        get{
-            guard let dVal = Double(resultValueLabel.text!) else { return 0.0 }
-            return dVal
-        }
-        
-        set{
-            resultValueLabel.text = newValue.withCommas()
-        }
-    }
-    private var inputDisplayValue: Double {
-        get{
-            
-            let cleanVal = inputValueLabel.text!.replacingOccurrences(of: ",", with: "")
-            
-            guard let dVal = Double(cleanVal) else { return 0.0 }
-            
-            return dVal
-        }
-        
-        set{
-            inputValueLabel.text = newValue.withCommas()
-        }
-    }
-    private var isMetricEnable: Bool = true
-    private var isFinishTyping: Bool = true
-    private var tempInputValue: String = ""
     
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         prepareToolBar()
+        viewModel.delegate = self
+        inputValueLabel.text = viewModel.inputValue
+        resultValueLabel.text = viewModel.resultValue
         
         //Selected distanceButton as default when view loads
         setActiveButton(distanceButton)
@@ -80,7 +56,8 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         if let numVal = sender.titleLabel, let value = numVal.text {
-            processInput(for: value)
+            print(value)
+            viewModel.processInput(for: value)
         }
     }
     
@@ -89,15 +66,15 @@ class CalculatorViewController: UIViewController {
        }
     
     @IBAction func deleteButton(_ sender: UIButton) {
-        deleteLastNum()
+        viewModel.deleteLastNum()
     }
     
     @IBAction func clearFields(_ sender: UIButton) {
-        clearValueField()
+        viewModel.clearValueField()
     }
     
     @IBAction func switchFormulaButtonPressed(_ sender: UIButton) {
-        isMetricEnable.toggle()
+        viewModel.isMetricEnable.toggle()
         setLabelName()
     }
     
@@ -190,7 +167,7 @@ class CalculatorViewController: UIViewController {
         
         let tag  = selectedButton.tag
         
-        currentSelection = OperationType.init(rawValue: String(tag))!
+        viewModel.currentSelection = OperationType.init(rawValue: String(tag))!
         
         setLabelName()
         
@@ -206,106 +183,19 @@ class CalculatorViewController: UIViewController {
     
     //Change the Labels base on current selection
     private func setLabelName()  {
-        clearValueField()
-        //Change placeholder
-        switch currentSelection {
-        case .temperature:
-            resultTypeLabel.text = isMetricEnable ? "°F" : "°C"
-            inputTypeLabel.text = isMetricEnable ? "°C" : "°F"
-        case .length :
-            resultTypeLabel.text = isMetricEnable ? "Foot" : "Metre"
-            inputTypeLabel.text = isMetricEnable ? "Metre" :  "Foot"
-        case .length2:
-            resultTypeLabel.text = isMetricEnable ? "Inch" : "cm"
-            inputTypeLabel.text = isMetricEnable ? "cm" : "Inch"
-        case .volume :
-            resultTypeLabel.text = isMetricEnable ? "Gallon" : "Litre"
-            inputTypeLabel.text = isMetricEnable ? "Litre" : "Gallon"
-        case .weight :
-            resultTypeLabel.text = isMetricEnable ? "Lb" : "Kg"
-            inputTypeLabel.text = isMetricEnable ? "Kg" : "Lb"
-        default:
-            resultTypeLabel.text = isMetricEnable ? "Miles" : "Km"
-            inputTypeLabel.text = isMetricEnable ? "Km" : "Miles"
-        }
-    }
-    
-    //MARK: - General private Methods
-    
-    //Clear fields
-    private func deleteLastNum() {
-        let _ = inputValueLabel.text?.popLast()
-        //Set the tempInputValue so it matches the currently display value
-        tempInputValue = inputValueLabel.text!.replacingOccurrences(of: ",", with: "")
-        if inputValueLabel.text == "" {
-            inputValueLabel.text = "0"
-            isFinishTyping = true
-        }
-
-         getResult()
-    }
-    
-    private func clearValueField() {
-        inputValueLabel.text = "0"
-        resultValueLabel.text = "0"
-        isFinishTyping = true
-    }
-    
-    private func processInput(for value: String) {
+        viewModel.clearValueField()
         
-        //guard let totalVal = inputValueLabel.text else { return }
+        let title = viewModel.getTitleType()
         
-        let maxCharReached = inputValueLabel.text!.count >= 11
-        let containsDecimal = tempInputValue.contains(".")
-        
-        //Append and sanitze value to prevent multiple decimal points
-        if isFinishTyping {
-            tempInputValue = value
-            isFinishTyping = false
-        }else{
-            numberFormatter.alwaysShowsDecimalSeparator = false
-            if value == "."{
-                //Setup here to prevent issue where display it wont show dot till the next digit is type
-                numberFormatter.alwaysShowsDecimalSeparator = true
-                if containsDecimal {
-                    return //Return to preven adding another decimal point
-                }
-            }
-            
-            if maxCharReached {
-                return
-            }
-            //Append if above conditions pass
-            tempInputValue += value
-        }
-        if let doubleValue = Double(tempInputValue) {
-            inputDisplayValue = doubleValue
-            getResult()
-        }
+        resultTypeLabel.text = title.resultLabel
+        inputTypeLabel.text = title.inputLabel
     }
-    
-    private func getResult() {
-        //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
-        if isMetricEnable {
-            resultDisplayValue = calculator.calculateMetricToImperial(for: currentSelection, value: inputDisplayValue)
-        }else{
-            resultDisplayValue = calculator.calculateImperialToMetric(for: currentSelection, value: inputDisplayValue)
-        }
-    }
-    
 }
 
-    //MARK: - Double extension
-
-//Use here to enable alwaysShowsDecimalSeparator inside processInput
-let numberFormatter = NumberFormatter()
-
-extension Double {
-    func withCommas() -> String {
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.groupingSeparator = ","
-        return numberFormatter.string(from: NSNumber(value:self))!
+    //MARK: - CalculatorDelegate
+extension CalculatorViewController: CalculatorDelegate{
+    func resultDidChanged() {
+        inputValueLabel.text = viewModel.inputValue
+        resultValueLabel.text = viewModel.resultValue
     }
 }
