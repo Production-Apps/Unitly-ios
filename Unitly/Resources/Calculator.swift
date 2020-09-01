@@ -21,38 +21,38 @@ enum OperationType: String {
 struct Calculator {
     
     //Calculates the result from the given value in the top textField to show on the botton textField
-    func calculateImperialToMetric(for type: OperationType,value topValue: Double ) -> Double {
+    func calculateImperialToMetric(for type: OperationType,value: Double ) -> Double {
         switch type {
         case .distance:
-            return 1.609 * topValue
+            return 1.609 * value
         case .temperature:
-            return (topValue - 32) * 5/9
+            return (value - 32) * 5/9
         case .length:
-            return topValue * 0.3048
+            return value * 0.3048
         case .volume:
-            return  3.785 * topValue
+            return  3.785 * value
         case .weight:
-            return topValue * 0.45359237
+            return value * 0.45359237
         case .length2:
-            return topValue * 2.54
+            return value * 2.54
         }
     }
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    func calculateMetricToImperial(for type: OperationType,value bottonValue: Double ) -> Double {
+    func calculateMetricToImperial(for type: OperationType,value: Double ) -> Double {
         switch type {
         case .distance:
-            return 0.621 * bottonValue
+            return 0.621 * value
         case .temperature:
-            return bottonValue * 9/5 + 32
+            return value * 9/5 + 32
         case .length:
-            return bottonValue * 3.28084
+            return value * 3.28084
         case .volume:
-            return bottonValue * 0.2641
+            return value * 0.2641
         case .weight:
-            return bottonValue * 2.2046226218
+            return value * 2.2046226218
         case .length2:
-            return bottonValue / 2.54
+            return value / 2.54
         }
     }
     

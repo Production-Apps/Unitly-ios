@@ -99,8 +99,7 @@ class CalculatorViewModel {
         inputValue = "0"
         resultValue = "0"
         isFinishTyping = true
-        
-        getResult()
+        delegate?.resultDidChanged()
     }
     
     func processInput(for value: String){
@@ -138,11 +137,14 @@ class CalculatorViewModel {
     
     private func getResult() {
         //Check if the field is empty then invoke the method to get the result to show result on the oppositive field
+        print(inputDisplayValue)
         if isMetricEnable {
             resultDisplayValue = calculatorBrain.calculateMetricToImperial(for: currentSelection, value: inputDisplayValue)
         }else{
             resultDisplayValue = calculatorBrain.calculateImperialToMetric(for: currentSelection, value: inputDisplayValue)
+            
         }
+        print(resultDisplayValue)
         delegate?.resultDidChanged()
         
     }
