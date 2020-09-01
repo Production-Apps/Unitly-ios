@@ -16,7 +16,6 @@ class UnitlyUITests: XCTestCase {
         return XCUIApplication()
     }
     
-    
     override func setUp() {
         //Stop if a test fails
         continueAfterFailure = false
@@ -25,93 +24,134 @@ class UnitlyUITests: XCTestCase {
         app.activate()
     }
     
-    
-    func testTextFields() {
+    func testInputValueLabel() {
+        app.buttons["SpeedButton"].tap()
         
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.buttons["distance"].tap()
-        
-        //Top TextField
-        let topTextField = app.textFields["ViewController.topTextField"]
-        let bottomTextField = app.textFields["ViewController.bottomTextField"]
-        
-        topTextField.tap()
-        topTextField.typeText("1")
-        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
+        app.buttons["Button1"].tap()
+        app.buttons["Button2"].tap()
+        app.buttons["Button3"].tap()
+        app.buttons["Button4"].tap()
 
-        //Check result
-        XCTAssertEqual(topTextField.value as! String, "1")
-        XCTAssertEqual(bottomTextField.value as! String, "1.61")
-        
-        //Bottom TextField
-        bottomTextField.tap()
-        bottomTextField.typeText("1")
-        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
-        
-        //Check result
-        XCTAssertEqual(topTextField.value as! String, "0.62")
-        XCTAssertEqual(bottomTextField.value as! String, "1")
+        //input TextField
+        let inputTextField = app.staticTexts["InputTextField"]
+    
+        //Check input
+        XCTAssertEqual(inputTextField.label, "1,234")
     }
     
-    
-    func testLabels() {
-        let topLabel = app.staticTexts["topLabel"]
-        let bottomLabel = app.staticTexts["bottomLabel"]
+    func testClearFieldButton() {
+        let inputTextField = app.staticTexts["InputTextField"]
         
-        XCTAssertEqual(topLabel.label, "Miles")
-        XCTAssertEqual(bottomLabel.label, "KM")
+        app.buttons["LengthButton"].tap()
+        
+        app.buttons["Button3"].tap()
+        app.buttons["Button4"].tap()
+        //Clear Field
+        app.buttons["ClearFieldButton"].tap()
+        //Check if is 0
+        XCTAssertEqual(inputTextField.label, "0")
     }
     
-    
-    func testToolbarButtons() {
+    func testResultValueLabel(){
+        let resultLabel =  app.staticTexts["ResultValue"]
         
-        let toolbar = app.toolbars["Toolbar"]
+        app.buttons["VolumeButton"].tap()
         
-        toolbar.buttons["temperature"].tap()
-        toolbar.buttons["length"].tap()
-        toolbar.buttons["volume"].tap()
-        toolbar.buttons["weight"].tap()
-        toolbar.buttons["length2"].tap()
-        toolbar.buttons["distance"].tap()
-
+        app.buttons["Button1"].tap()
+        
+        XCTAssertEqual(resultLabel.label, "0.26")
+        
     }
     
-    
-    func testResetButton() {
-        //Top TextField
-        let topTextField = app.textFields["ViewController.topTextField"]
-        let bottomTextField = app.textFields["ViewController.bottomTextField"]
+    func testNumbers() {
+        let resultLabel = app.staticTexts["InputTextField"]
         
-        topTextField.tap()
-        topTextField.typeText("1")
-        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
+        app.buttons["WeightButton"].tap()
         
-        //Clear fields
-        app/*@START_MENU_TOKEN@*/.staticTexts["Clear"]/*[[".buttons[\"Clear\"].staticTexts[\"Clear\"]",".buttons[\"ViewController.clearButton\"].staticTexts[\"Clear\"]",".staticTexts[\"Clear\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-
-        //Check result
-        XCTAssertNotEqual(topTextField.value as! String, "1")
-        XCTAssertEqual(bottomTextField.value as! String, "")
+        app.buttons["Button1"].tap()
+        app.buttons["Button2"].tap()
+        app.buttons["Button3"].tap()
+        app.buttons["Button4"].tap()
+        app.buttons["Button5"].tap()
+        app.buttons["Button6"].tap()
+        app.buttons["Button7"].tap()
+        app.buttons["Button8"].tap()
+        app.buttons["Button9"].tap()
+        
+        XCTAssertEqual(resultLabel.label, "123,456,789")
+        
     }
     
-    func testStringInput() {
+    func testBackSpaceButton(){
+        let inputField = app.staticTexts["InputTextField"]
         
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.buttons["volume"].tap()
+        app.buttons["Length2Button"].tap()
         
-        
-        //Top TextField
-        let topTextField = app.textFields["ViewController.topTextField"]
-        let bottomTextField = app.textFields["ViewController.bottomTextField"]
-        
-        topTextField.tap()
-        topTextField.typeText("this is a string test")
-        app.toolbars.matching(identifier: "Toolbar").buttons["Done"].tap()
-
-        //Check result
-        XCTAssertEqual(bottomTextField.value as! String, "")
+        app.buttons["Button1"].tap()
+        app.buttons["Button2"].tap()
+        //Delete one digit and check
+        app.buttons["BackSpaceButton"].tap()
+        XCTAssertEqual(inputField.label , "1")
     }
     
-   
+    func testLength2Button() {
+        let resultLabel = app.staticTexts["ResultLabel"]
+        let inputLabel = app.staticTexts["InputLabel"]
+        
+        app.buttons["Length2Button"].tap()
+      
+        XCTAssertEqual(resultLabel.label, "Inch")
+        XCTAssertEqual(inputLabel.label, "cm")
+    }
+    
+    func testWeightButton() {
+        let resultLabel = app.staticTexts["ResultLabel"]
+        let inputLabel = app.staticTexts["InputLabel"]
+        
+        app.buttons["WeightButton"].tap()
+      
+        XCTAssertEqual(resultLabel.label, "Lb")
+        XCTAssertEqual(inputLabel.label, "Kg")
+    }
+    
+    func testVolumeButton() {
+        let resultLabel = app.staticTexts["ResultLabel"]
+        let inputLabel = app.staticTexts["InputLabel"]
+        
+        app.buttons["VolumeButton"].tap()
+      
+        XCTAssertEqual(resultLabel.label, "Gallon")
+        XCTAssertEqual(inputLabel.label, "Litre")
+    }
+    
+    func testLengthButton() {
+        let resultLabel = app.staticTexts["ResultLabel"]
+        let inputLabel = app.staticTexts["InputLabel"]
+        
+        app.buttons["LengthButton"].tap()
+      
+        XCTAssertEqual(resultLabel.label, "Foot")
+        XCTAssertEqual(inputLabel.label, "Metre")
+    }
+    
+    func testTempButton() {
+           let resultLabel = app.staticTexts["ResultLabel"]
+           let inputLabel = app.staticTexts["InputLabel"]
+           
+           app.buttons["TempButton"].tap()
+         
+           XCTAssertEqual(resultLabel.label, "°F")
+           XCTAssertEqual(inputLabel.label, "°C")
+       }
+       
+    func testSpeedButton() {
+           let resultLabel = app.staticTexts["ResultLabel"]
+           let inputLabel = app.staticTexts["InputLabel"]
+           
+           app.buttons["SpeedButton"].tap()
+         
+           XCTAssertEqual(resultLabel.label, "Miles")
+           XCTAssertEqual(inputLabel.label, "Km")
+       }
     
 }
