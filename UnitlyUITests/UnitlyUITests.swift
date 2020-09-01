@@ -154,4 +154,9 @@ class UnitlyUITests: XCTestCase {
            XCTAssertEqual(inputLabel.label, "Km")
        }
     
+    func testBurgerMenuButton() {
+        app.buttons["BurgerMenuButton"].tap()
+        app.buttons["FeedbackButton"].tap()
+    }
+    
 }

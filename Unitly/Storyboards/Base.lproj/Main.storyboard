@@ -52,6 +52,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mH-pe-aPW">
                                                         <rect key="frame" x="33" y="0.0" width="116.5" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="FeedbackButton"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <state key="normal" title="Feedback">
                                                             <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,6 +103,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-iL-bL0">
                                         <rect key="frame" x="8" y="57" width="35" height="25.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="BurgerMenuButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="ihn-aZ-WSG"/>
                                             <constraint firstAttribute="width" constant="35" id="vBk-9f-Y30"/>
@@ -462,6 +464,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="CalculatorView"/>
                                 <constraints>
                                     <constraint firstItem="r50-5k-NuM" firstAttribute="leading" secondItem="btH-LU-TF0" secondAttribute="leading" id="0D4-Qo-iTP"/>
                                     <constraint firstItem="ToI-fK-Cwk" firstAttribute="top" secondItem="zpJ-iL-bL0" secondAttribute="bottom" constant="20" id="0FB-Ep-pmj"/>
