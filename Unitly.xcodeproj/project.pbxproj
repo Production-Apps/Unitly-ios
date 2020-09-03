@@ -282,7 +282,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "FGT MAC";
 				TargetAttributes = {
 					0436A3AE24384FE400A8461B = {
@@ -719,6 +719,7 @@
 			baseConfigurationReference = 3996A3C484590D0FC10D4D6F /* Pods-Unitly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = "$(SRCROOT)/Unitly/Info.plist";
@@ -726,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnit;
 				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;
@@ -739,6 +740,7 @@
 			baseConfigurationReference = 12A56019D347C755B7BF4CA4 /* Pods-Unitly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = "$(SRCROOT)/Unitly/Info.plist";
@@ -746,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.productions.fritzgt.iUnit;
 				PRODUCT_NAME = Unitly;
 				SWIFT_VERSION = 5.0;

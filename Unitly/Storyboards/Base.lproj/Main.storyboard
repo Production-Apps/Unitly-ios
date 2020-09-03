@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DXH-Sg-SPW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DXH-Sg-SPW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -144,6 +144,19 @@
                                             <constraint firstItem="vVx-o9-meG" firstAttribute="leading" secondItem="ToI-fK-Cwk" secondAttribute="leading" constant="16" id="qY5-Ff-Gu5"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-rA-rTC">
+                                        <rect key="frame" x="182" y="206.5" width="50" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="35O-wa-aGD"/>
+                                            <constraint firstAttribute="height" constant="45" id="Dw7-D1-kPT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="arrow.swap" catalog="system"/>
+                                        <connections>
+                                            <action selector="switchFormulaButtonPressed:" destination="DXH-Sg-SPW" eventType="touchUpInside" id="Yne-No-lpn"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp9-me-3In" userLabel="LowerView">
                                         <rect key="frame" x="0.0" y="258" width="414" height="75"/>
                                         <subviews>
@@ -195,13 +208,13 @@
                                         <rect key="frame" x="0.0" y="334" width="414" height="562"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6gs-kj-CsS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="482"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5eN-Se-PG2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="96.5"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL4-q0-m0t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="SpeedButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -213,7 +226,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qji-W8-yfL">
-                                                                <rect key="frame" x="69" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="69" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="TempButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -225,7 +238,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS8-CS-cRD">
-                                                                <rect key="frame" x="138" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="138" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="LengthButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -237,7 +250,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAw-XP-7wz">
-                                                                <rect key="frame" x="207" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="207" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="VolumeButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -249,7 +262,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2h-xE-1zw">
-                                                                <rect key="frame" x="276" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="276" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="WeightButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -261,7 +274,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-R1-TGM">
-                                                                <rect key="frame" x="345" y="0.0" width="69" height="108.5"/>
+                                                                <rect key="frame" x="345" y="0.0" width="69" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Length2Button"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -275,10 +288,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-xZ-7iF">
-                                                        <rect key="frame" x="0.0" y="108.5" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="96.5" width="414" height="96.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdt-Ba-JwG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button7"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -290,7 +303,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKz-Dg-Q3c">
-                                                                <rect key="frame" x="138" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="138" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button8"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -302,7 +315,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62P-nG-Slb">
-                                                                <rect key="frame" x="276" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="276" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button9"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -316,10 +329,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-KB-YeG">
-                                                        <rect key="frame" x="0.0" y="217" width="414" height="108"/>
+                                                        <rect key="frame" x="0.0" y="193" width="414" height="96"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZo-TX-J1c">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="108"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="96"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button4"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -331,7 +344,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpm-Vo-Lwf">
-                                                                <rect key="frame" x="138" y="0.0" width="138" height="108"/>
+                                                                <rect key="frame" x="138" y="0.0" width="138" height="96"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -343,7 +356,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-u7-IfV">
-                                                                <rect key="frame" x="276" y="0.0" width="138" height="108"/>
+                                                                <rect key="frame" x="276" y="0.0" width="138" height="96"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button6"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -357,10 +370,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-Nw-yoo">
-                                                        <rect key="frame" x="0.0" y="325" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="289" width="414" height="96.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-DX-I3E">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button1"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -372,7 +385,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-Dr-K3p">
-                                                                <rect key="frame" x="138" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="138" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button2"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -384,7 +397,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lp-AG-oB9">
-                                                                <rect key="frame" x="276" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="276" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button3"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -398,10 +411,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yDc-eE-XA6">
-                                                        <rect key="frame" x="0.0" y="433.5" width="414" height="108.5"/>
+                                                        <rect key="frame" x="0.0" y="385.5" width="414" height="96.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qd3-cr-rif">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="Button0"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -413,7 +426,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-SV-M3g">
-                                                                <rect key="frame" x="138" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="138" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="DecimalButton"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
@@ -425,7 +438,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JY-WG-iDa">
-                                                                <rect key="frame" x="276" y="0.0" width="138" height="108.5"/>
+                                                                <rect key="frame" x="276" y="0.0" width="138" height="96.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="BackSpaceButton"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -444,24 +457,11 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="6gs-kj-CsS" secondAttribute="trailing" id="B4p-mm-mdV"/>
-                                            <constraint firstAttribute="bottom" secondItem="6gs-kj-CsS" secondAttribute="bottom" constant="20" id="C7l-px-Tbv"/>
+                                            <constraint firstAttribute="bottom" secondItem="6gs-kj-CsS" secondAttribute="bottom" constant="80" id="C7l-px-Tbv"/>
                                             <constraint firstItem="6gs-kj-CsS" firstAttribute="leading" secondItem="US5-wA-Lod" secondAttribute="leading" id="iCA-2K-KIh"/>
                                             <constraint firstItem="6gs-kj-CsS" firstAttribute="top" secondItem="US5-wA-Lod" secondAttribute="top" id="tTC-XV-N0q"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-rA-rTC">
-                                        <rect key="frame" x="182" y="206.5" width="50" height="41.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="35O-wa-aGD"/>
-                                            <constraint firstAttribute="height" constant="45" id="Dw7-D1-kPT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="arrow.swap" catalog="system"/>
-                                        <connections>
-                                            <action selector="switchFormulaButtonPressed:" destination="DXH-Sg-SPW" eventType="touchUpInside" id="Yne-No-lpn"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="CalculatorView"/>

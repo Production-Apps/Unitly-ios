@@ -8,6 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
+import GoogleMobileAds
 
 class CalculatorViewController: UIViewController {
     
@@ -31,17 +32,25 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var burgerMenu: UIButton!
     @IBOutlet weak var swapButton: UIButton!
     
-
     //MARK: - Properties
     private var viewModel = CalculatorViewModel()
     
     private var isMenuExtended: Bool = false
+    
+    private let banner: GADBannerView = {
+        let banner = GADBannerView(adSize: kGADAdSizeBanner)
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.load(GADRequest())
+        banner.backgroundColor = .systemRed
+        return banner
+    }()
     
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        banner.rootViewController = self
         
         prepareToolBar()
         
@@ -50,6 +59,11 @@ class CalculatorViewController: UIViewController {
         
         //Selected distanceButton as default when view loads
         setActiveButton(distanceButton)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+         configureAds()
     }
     
     //MARK: - IBActions
@@ -189,6 +203,15 @@ class CalculatorViewController: UIViewController {
         
         resultTypeLabel.text = title.resultLabel
         inputTypeLabel.text = title.inputLabel
+    }
+    
+    private func configureAds(){
+        view.addSubview(banner)
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        //banner.center = view.center
+        banner.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        banner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
     }
 }
 
