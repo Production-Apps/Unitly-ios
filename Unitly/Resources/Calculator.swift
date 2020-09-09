@@ -10,74 +10,70 @@ import Foundation
 
 
 enum OperationType: String {
-    case distance
-    case temperature
-    case length
-    case volume
-    case weight
-    case length2
+    case distance = "1"
+    case temperature = "2"
+    case length = "3"
+    case volume = "4"
+    case weight = "5"
+    case length2 = "6"
 }
 
 struct Calculator {
-
-    func calResult(type: OperationType, topValue: String = "", bottonValue: String = "") -> String {
-        
-        
-        var finalValue = 00.00
-        
-        if !topValue.isEmpty{
-            finalValue = topEquation(for: type, value: topValue)
-        }else if !bottonValue.isEmpty{
-            finalValue = bottonEquation(for: type, value: bottonValue)
-        }
-        //Return final value as String
-        return String(format:"%.2f", finalValue)
-    }
+    
+    //MARK: - Properties
+    
+    private var value : Double = 0.0
+    private var type: OperationType = .distance
+    
+    //MARK: - Methods
+    mutating func getResult(value: Double,for type: OperationType, isMetricEnable: Bool) -> Double {
+        self.value = value
+        self.type = type
+       
+          if isMetricEnable {
+              return calculateMetricToImperial()
+          }else{
+              return calculateImperialToMetric()
+          }
+      }
     
     
-    //Calculates the result from the given value in the top textField to show on the botton textField
-    private func topEquation(for type: OperationType,value topValue:String ) -> Double{
-        
-        guard let num = Double(topValue) else {return 0}
-        
+    //MARK: - Private methods
+    
+    private func calculateImperialToMetric() -> Double {
         switch type {
         case .distance:
-            return 1.609 * num
+            return 1.609 * value
         case .temperature:
-            return (num - 32) * 5/9
+            return (value - 32) * 5/9
         case .length:
-            return num * 0.3048
+            return value * 0.3048
         case .volume:
-            return  3.785 * num
+            return  3.785 * value
         case .weight:
-            return num * 0.45359237
+            return value * 0.45359237
         case .length2:
-            return num * 2.54
+            return value * 2.54
         }
     }
-    
     
     //Calculates the result from the given value in the botton textField to show on the top textField
-    private func bottonEquation(for type: OperationType,value bottonValue:String ) -> Double{
-    
-        guard let num = Double(bottonValue) else {return 0}
-        
+    private func calculateMetricToImperial() -> Double {
         switch type {
         case .distance:
-            return 0.621 * num
+            return 0.621 * value
         case .temperature:
-            return num * 9/5 + 32
+            return value * 9/5 + 32
         case .length:
-            return num * 3.28084
+            return value * 3.28084
         case .volume:
-            return num * 0.2641
+            return value * 0.2641
         case .weight:
-            return num * 2.2046226218
+            return value * 2.2046226218
         case .length2:
-            return num / 2.54
+            return value / 2.54
         }
     }
-    
     
 }
 
