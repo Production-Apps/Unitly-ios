@@ -1,6 +1,6 @@
 # ![](./Unitly/Resources/Assets.xcassets/AppIcon.appiconset/29.png) Unitly
 
-## Introduction
+## Overview
 
 An iOS app designed to convert metric units into imperial units.
 
