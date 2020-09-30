@@ -4,6 +4,8 @@
 
 An iOS app designed to convert metric units into imperial units.
 
+## Features
+
         - AdMob as monetization technology.
         - Followed the MVVM design pattern.
         - Implemented UI and unit testing.
@@ -13,3 +15,7 @@ An iOS app designed to convert metric units into imperial units.
 ## Apple AppStore
 
 [Download app now](https://apps.apple.com/us/app/unitly/id1501719971#?platform=iphone)
+
+## License
+
+MIT © [Fritz Gamboa](https://fritzgt.com/)
